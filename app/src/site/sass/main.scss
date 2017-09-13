@@ -1,0 +1,45 @@
+$blue: #7eddf0;
+$red: #fd517a;
+$black: #3d3d3d;
+$grey: #666;
+
+@mixin transform($value...) {
+          transform: $value;
+     -moz-transform: $value;
+       -o-transform: $value;
+      -ms-transform: $value;
+  -webkit-transform: $value;
+}
+
+@mixin transition($value...) {
+          transition: $value;
+     -moz-transition: $value;
+       -o-transition: $value;
+      -ms-transition: $value;
+  -webkit-transition: $value;
+}
+
+@mixin shadow($value...) {
+          box-shadow: $value;
+     -moz-box-shadow: $value;
+       -o-box-shadow: $value;
+      -ms-box-shadow: $value;
+  -webkit-box-shadow: $value;
+}
+
+* { margin: 0; padding: 0; list-style:  none; box-sizing: border-box;}
+
+/* Float stuff */
+.left { float: left; }
+.right { float: right; }
+.cleared:after { content: ""; clear: both; display: block; }
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  main {
+    height: 100%;
+  }
+}
+

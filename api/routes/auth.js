@@ -15,7 +15,7 @@ router.route('/signin').post(function(req, res) {
   newUser.save(function (err, result) {
     if(err) return res.redirect('/');
     passport.authenticate('local')(req, res, function () {
-      res.redirect('/');
+      res.redirect('/handling');
     });
   });
 

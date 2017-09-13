@@ -2,16 +2,18 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var salt = 10;
 
-var UserSchema = new mongoose.Schema({
+var schema = new mongoose.Schema({
   mail:       { type: String, required: true, index: { unique: true } },
   username:   { type: String, required: true, index: { unique: true } },
   password:   { type: String, required: true },
   created:    { type: Date, default: Date.now() }
 });
 
-UserSchema.pre('save', function(next) {
+schema.pre('save', function(next) {
 
   var user = this;
+
+  if (!this.created) this.created = Date.now();
 
   // only hash the password if it has been modified (or is new)
   if (!user.isModified('password')) return next();
@@ -31,10 +33,10 @@ UserSchema.pre('save', function(next) {
   });
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword) {
+schema.methods.comparePassword = function(candidatePassword) {
 
   return bcrypt.compareSync(candidatePassword, this.password)
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', schema);
 

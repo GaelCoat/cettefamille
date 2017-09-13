@@ -14,17 +14,6 @@ module.exports = function(app) {
   // --------------------------------------------------
   // Home
   // --------------------------------------------------
-  app.route('/').get(function(req, res) {
-
-    console.log('helo');
-    res.render('index');
-  });
-
-  app.route('/handling').get(auth, function(req, res) {
-
-    res.render('handling', {user: req.user});
-  });
-
   app.route('/login').get(function(req, res) {
 
     res.render('login');
@@ -39,6 +28,13 @@ module.exports = function(app) {
   // La liste des routes spécifiques
   // --------------------------------------------------
   app.use('/auth', require('./auth'));
+  app.use('/handling', require('./handling'));
+
+  app.route('/*').get(function(req, res) {
+
+    res.render('index');
+  });
+
 
   return app;
 }

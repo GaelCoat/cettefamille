@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+/* Float stuff */
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.cleared:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+body {
+  width: 100%;
+  height: 100vh; }
+  body main {
+    height: 100%; }
+
+/*# sourceMappingURL=app.css.map*/

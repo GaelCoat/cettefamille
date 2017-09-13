@@ -1,0 +1,35 @@
+aside {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  border-right: 1px solid transparentize($black, .9);
+  width: 240px;
+
+  padding-top: 120px;
+
+  ul {
+    display: block;
+    width: 100%;
+
+    li {
+      display: block;
+      width: 100%;
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 18px;
+        color: transparentize($black, .6);
+        text-decoration: none;
+        border-top: 2px solid transparentize($black, .95);
+        font-size: 14px;
+      }
+
+      &:last-child a { border-bottom: 2px solid transparentize($black, .95); }
+
+      &.activ a { color: $black; }
+    }
+  }
+}

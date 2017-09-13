@@ -1,5 +1,5 @@
 {
-  "name": "simple-node-startup",
+  "name": "cettefamille",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GaelCoat/simple-node-startup.git"
+    "url": "git+https://github.com/GaelCoat/cettefamille"
   },
   "author": "gael coat",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GaelCoat/simple-node-startup/issues"
+    "url": "https://github.com/GaelCoat/cettefamille/issues"
   },
-  "homepage": "https://github.com/GaelCoat/simple-node-startup#readme",
+  "homepage": "https://github.com/GaelCoat/cettefamille#readme",
   "dependencies": {
     "backbone": "^1.3.3",
     "backbone.marionette": "^3.2.0",
@@ -46,10 +46,15 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.3.2",
+    "css-loader": "^0.28.3",
     "extract-text-webpack-plugin": "^2.1.0",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.5.3",
     "pug-html-loader": "^1.1.4",
-    "sass-loader": "^6.0.3",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
     "webpack": "^2.3.3"
   }
 }

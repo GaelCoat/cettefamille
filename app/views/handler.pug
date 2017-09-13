@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Basic Index
+    meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+    link(href="/css/handler.css", rel="stylesheet", type="text/css")
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600", rel="stylesheet")
+    base(href='/')
+    //-link(rel='stylesheet', href='/css/app.css')
+  body
+    aside.menu
+
+      ul
+        li
+          a(href='handling', soft) Tableau de bord
+        li
+          a(href='handling/tests', soft) tests
+    content
+
+
+  script(src='./vendor.bundle.js')
+  script(src='./handler.bundle.js')

@@ -11,7 +11,7 @@ var config = {
   },
   mongo: {
     api: {
-      host: "mongodb://localhost/custom"
+      host: "mongodb://localhost/cettefamille"
     }
   }
 }
