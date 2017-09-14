@@ -16,7 +16,8 @@ module.exports = Marionette.Application.extend({
     this.router.on('router:render', this.loadView.bind(this));
 
     this.layout = new Layout();
-
+    this.layout.on('redirect', this.cleanRedirect.bind(this));
+    this.layout.render();
     return this;
   },
 

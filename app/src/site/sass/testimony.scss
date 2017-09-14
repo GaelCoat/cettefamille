@@ -1,0 +1,76 @@
+#testimony {
+  padding-top: 100px;
+
+  h1 {
+    color: $black;
+    font-size: 20px;
+    border-bottom: 1px solid transparentize($black, .9);
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        height: 1px;
+        width: 100%;
+        background-color: transparentize($black, .2);
+        content: "";
+      }
+    }
+  }
+
+  section {
+    padding-top: 60px;
+
+    article {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid transparentize($black, .9);
+      position: relative;
+      padding-bottom: 24px;
+      margin-bottom: 60px;
+
+      .col {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 120px);
+
+        &:last-child {
+          width: 80px;
+          height: 80px;
+          border-radius: 80px;
+          margin-left: 40px;
+          background-color: transparentize($grey, .9);
+        }
+      }
+
+      span {
+        font-weight: 400;
+        color: transparentize($grey, .4);
+        font-size: 13px;
+        display: inline-block;
+        margin-left: 12px;
+      }
+
+      h5 {
+        font-weight: 400;
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: $black;
+      }
+
+      p {
+        font-weight: 300;
+        color: $grey;
+        font-size: 16px;
+        max-width: 90%;
+        line-height: 1.5;
+      }
+
+    }
+  }
+}

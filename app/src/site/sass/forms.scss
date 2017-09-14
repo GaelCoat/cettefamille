@@ -1,0 +1,127 @@
+$error: #fd767c;
+
+.forms {
+
+  padding: 160px 0;
+  padding-bottom: 180px;
+
+  .col {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    text-align: left;
+
+    &:last-child {
+      text-align: right;
+    }
+
+    h5 {
+      color: $black;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    p {
+      color: $grey;
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 18px;
+      max-width: 90%;
+      line-height: 1.5;
+    }
+
+    form {
+      display: inline-block;
+      background-color: #f8f9fb;
+      border-radius: 4px;
+      padding: 40px;
+      width: 73%;
+      padding-bottom: 0;
+
+      .split {
+        width: 100%;
+        margin-bottom: 30px;
+        position: relative;
+
+        &:last-of-type { margin-bottom: 16px }
+
+        &:after {
+          position: absolute;
+          pointer-events: none;
+          right: 20px;
+          bottom: 2px;
+          top: 0;
+          width: 75px;
+          background: -moz-linear-gradient(left,  rgba(248, 249, 251, 0) 0%, rgba(248, 249, 251, 1) 100%);
+          background: -webkit-linear-gradient(left,  rgba(248, 249, 251, 0) 0%,rgba(248, 249, 251, 1) 100%);
+          background: linear-gradient(to right,  rgba(248, 249, 251, 0) 0%,rgba(248, 249, 251, 1) 100%);
+          content: "";
+          display: none;
+        }
+
+        input {
+          width: 100%;
+          border: 0;
+          font-family: montserrat;
+          outline: 0;
+          position: relative;
+          padding: 10px;
+          padding-right: 20px;
+          border-bottom: 2px solid transparentize($grey, .8);
+          color: $black;
+          background-color: transparent;
+          @include transition(.33s);
+
+          &:focus { border-bottom-color: $blue; }
+        }
+
+        i {
+          color: $error;
+          position: absolute;
+          right: 0;
+          top: 22%;
+          font-size: 20px;
+          z-index: 2;
+          display: none;
+        }
+
+        &.error {
+
+          input {
+            border-bottom-color: $error !important;
+          }
+
+          &:after,
+          i {
+            display: block;
+          }
+        }
+      }
+
+
+      button {
+        width: 100%;
+        border: 0;
+        font-family: montserrat;
+        outline: 0;
+        padding: 24px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        background-color: $blue;
+        border-radius: 100px;
+        text-align: center;
+        @include transform(translate(0, 50%));
+        @include shadow(4px 7px 21px 0 transparentize($blue, .8));
+
+        span { position: relative; z-index: 2;}
+
+        &.success {
+          background-color: $success;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

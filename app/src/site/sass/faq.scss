@@ -1,0 +1,62 @@
+#terms {
+  padding: 100px 0;
+  color: $black;
+  padding-right: 15%;
+
+  a {
+    display: block;
+    color: $blue;
+    text-decoration: none;
+    line-height: 1.7;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: $black;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: $black;
+    font-weight: 500;
+    margin-top: 46px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .separator {
+    width: 50px;
+    height: 2px;
+    background-color: transparentize($grey, .8);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 24px;
+    color: $black;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 300;
+    color: $grey;
+    line-height: 1.4;
+
+    a {
+      display: inline;
+      line-height: 1.4;
+      margin-left: 5px;
+    }
+  }
+
+  &.cgu p { padding: 4px 0 }
+}

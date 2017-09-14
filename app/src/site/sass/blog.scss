@@ -1,0 +1,114 @@
+#blog {
+  padding-top: 100px;
+
+  h1 {
+    color: $black;
+    font-size: 20px;
+    border-bottom: 1px solid transparentize($black, .9);
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        height: 1px;
+        width: 100%;
+        background-color: transparentize($black, .2);
+        content: "";
+      }
+    }
+  }
+
+  section {
+    padding-top: 60px;
+
+    article {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid transparentize($black, .9);
+      position: relative;
+      margin-bottom: 60px;
+
+      a {
+        position: relative;
+        padding-bottom: 24px;
+        display: block;
+        text-decoration: none;
+
+        span {
+          font-weight: 400;
+          color: transparentize($grey, .4);
+          font-size: 13px;
+          display: block;
+          margin-bottom: 24px;
+        }
+
+        h5 {
+          font-weight: 400;
+          font-size: 20px;
+          margin-bottom: 12px;
+          color: $black;
+        }
+
+        p {
+          font-weight: 300;
+          color: $grey;
+          font-size: 16px;
+          max-width: 60%;
+          line-height: 1.5;
+        }
+
+        .read-more {
+          position: absolute;
+          right: 24px;
+          color: $black;
+          bottom: 24px;
+          font-size: 14px;
+
+          &:before {
+            position: absolute;
+            left: 12px;
+            top: -2px;
+            bottom: -2px;
+            background-color: transparentize($grey, .9);
+            @include transition(.3s .1s);
+            width: 0;
+            content: "";
+          }
+
+          .s {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            z-index: 1;
+            @include transition(.3s)
+          }
+
+          i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            position: relative;
+            top: -1px;
+            @include transition(.3s)
+          }
+
+        }
+
+        &:hover {
+
+          i { @include transform(translate(-12px, 0)) }
+          .s { @include transform(translate(12px, 0)) }
+
+          .read-more:before {
+            width: 55px;
+          }
+        }
+      }
+    }
+  }
+}

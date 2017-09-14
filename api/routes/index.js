@@ -29,6 +29,7 @@ module.exports = function(app) {
   // --------------------------------------------------
   app.use('/auth', require('./auth'));
   app.use('/handling', require('./handling'));
+  app.use('/family', require('./family'));
 
   app.route('/*').get(function(req, res) {
 

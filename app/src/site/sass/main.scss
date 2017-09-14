@@ -1,7 +1,8 @@
-$blue: #7eddf0;
-$red: #fd517a;
-$black: #3d3d3d;
-$grey: #666;
+$blue: #0054ff;
+$light-blue: #00b4ff;
+$black: #313131;
+$grey: #676767;
+$success: #43c36b;
 
 @mixin transform($value...) {
           transform: $value;
@@ -34,12 +35,51 @@ $grey: #666;
 .right { float: right; }
 .cleared:after { content: ""; clear: both; display: block; }
 
-body {
-  width: 100%;
-  height: 100vh;
+/* Droplet stuff */
+.has-droplet {
+  position: relative;
+  overflow: hidden;
+  @include transition(.6s);
 
-  main {
-    height: 100%;
+  &:hover {
+    background-color: $light-blue !important;
+    @include shadow(0 6px 16px 0 transparentize($light-blue, .6) !important);
+
+    .droplet {
+      background-color: $light-blue;
+      @include transform(scale(1));
+      @include transition(.33s opacity, .33s transform);
+      opacity: 1;
+    }
+  }
+
+  .droplet {
+    position: absolute;
+    width: 66%;
+    border-radius: 200px;
+    pointer-events: none;
+    opacity: 0;
+    @include transform(scale(0));
+    @include transition(0s);
+
+    &:before {
+      content: "";
+      padding-top: 100%;
+      display: block;
+    }
   }
 }
 
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+  main { min-height: 660px; }
+}
+
+.row { width: 1100px; max-width: 90%; margin: 0 auto; }
+
+@import 'header', 'footer', 'forms', 'faq', 'blog', 'testimony';

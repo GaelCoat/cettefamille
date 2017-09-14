@@ -5,15 +5,22 @@ module.exports = Marionette.AppRouter.extend({
     '': 'home',
     'devenir': 'becoming',
     'chercher': 'looking',
+    'faq': 'faq',
+    'cgu': 'cgu',
+    'actualites': 'blog',
+    'temoignages': 'testimony',
   },
 
   home: function() { return this.render('home', null) },
-  becoming: function() { return this.render('becoming', null) },
-  looking: function() { return this.render('looking', null) },
+  becoming: function() { return this.render('family/index', null) },
+  looking: function() { return this.render('elderly/index', null) },
+  faq: function() { return this.render('faq/index', null) },
+  cgu: function() { return this.render('cgu/index', null) },
+  blog: function() { return this.render('blog/index', null) },
+  testimony: function() { return this.render('testimony/index', null) },
 
   render: function(view, params) {
 
-    console.log(this);
     this.trigger('router:render', {view: view, params: params});
     return this;
   }
