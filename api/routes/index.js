@@ -30,6 +30,8 @@ module.exports = function(app) {
   app.use('/auth', require('./auth'));
   app.use('/handling', require('./handling'));
   app.use('/family', require('./family'));
+  app.use('/elderly', require('./elderly'));
+  app.use('/blog', require('./blog'));
 
   app.route('/*').get(function(req, res) {
 

@@ -1,0 +1,108 @@
+.table {
+
+  ul.sorting {
+    display: block;
+    margin-top: 24px;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      color: $grey;
+      margin-right: 18px;
+      font-size: 15px;
+      padding-bottom: 4px;
+      cursor: pointer;
+      @include transition(.2s);
+      border-bottom: 2px solid transparent;
+
+      &.activ {
+        color: $black;
+        border-bottom: 2px solid $blue;
+      }
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  #list {
+
+    .legend {
+      width: 100%;
+      padding: 6px 18px;
+
+      .type {
+        display: inline-block;
+        vertical-align: middle;
+        width: 15%;
+        padding: 6px;
+        position: relative;
+        margin-right: 24px;
+        font-weight: 300;
+        color: $grey;
+      }
+    }
+
+    ul{
+      width: 100%;
+
+      li {
+        width: 100%;
+        display: block;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 18px;
+        margin-bottom: 8px;
+        position: relative;
+
+        .col {
+          display: inline-block;
+          vertical-align: middle;
+          width: 15%;
+          padding: 6px;
+          position: relative;
+          margin-right: 24px;
+
+          &:after {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            content: "";
+            background-color: transparentize($black, .9);
+          }
+
+          &:first-child span {
+            text-transform: capitalize;
+          }
+
+          span {
+            color: $black;
+            display: block;
+          }
+        }
+
+        .actions {
+          position: absolute;
+          right: 18px;
+          top: 14px;
+
+          > i {
+            display: inline-block;
+            background-color: $grey-bg;
+            color: $grey;
+            border-radius: 50px;
+            padding: 9px;
+            @include transition(.2s);
+            cursor: pointer;
+
+            &:hover,
+            &.open { color: $black; }
+          }
+        }
+      }
+    }
+  }
+}

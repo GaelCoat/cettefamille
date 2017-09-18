@@ -1,0 +1,64 @@
+script(type="text/template", id="tpl-family")
+  .col
+    span {{family.get('name')}}
+  .col
+    span {{family.get('phone')}}
+  .col
+    span {{family.get('code')}}
+  .col
+    span {{family.get('mail')}}
+  .col
+    span {{family.getCreated('DD/MM/YYYY')}}
+  .col
+    span {{family.getState()}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.done
+          i.material-icons check
+          | Traitée
+        a.pending
+          i.material-icons schedule
+          | En attente
+        a.delete
+          i.material-icons close
+          | Supprimer
+
+script(type="text/template", id="tpl-elderly")
+  .col
+    span {{elderly.get('name')}}
+  .col
+    span {{elderly.get('phone')}}
+  .col
+    span {{elderly.get('code')}}
+  .col
+    span {{elderly.getCreated('DD/MM/YYYY')}}
+  .col
+    span {{elderly.getState()}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.done
+          i.material-icons check
+          | Traitée
+        a.pending
+          i.material-icons schedule
+          | En attente
+        a.delete
+          i.material-icons close
+          | Supprimer
+
+script(type="text/template", id="tpl-blog")
+  .col
+    span {{blog.get('title')}}
+  .col
+    span {{blog.getCreated('DD/MM/YYYY')}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.edit(href="handling/blog/new/{{blog.get('_id')}}", soft)
+          i.material-icons mode_edit
+          | Modifier
+        a.delete
+          i.material-icons close
+          | Supprimer

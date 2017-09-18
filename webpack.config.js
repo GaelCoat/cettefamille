@@ -40,7 +40,7 @@ var options = {
     modules: ["./app/src", "./app/src/libs", "node_modules"]
   },
 
-  devtool: "source-map",
+  devtool: "eval",
 
   module: {
     rules: [

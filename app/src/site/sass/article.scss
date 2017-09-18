@@ -1,0 +1,19 @@
+#article {
+  padding: 100px 0;
+  color: $black;
+  padding-right: 15%;
+
+  h2 {
+    font-weight: 500;
+    font-size: 34px;
+    margin-bottom: 24px;
+  }
+
+  .markdown-body {
+    color: $grey !important;
+  }
+
+  li {
+    list-style: initial;
+  }
+}

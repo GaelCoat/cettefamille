@@ -8,6 +8,7 @@ module.exports = Marionette.AppRouter.extend({
     'faq': 'faq',
     'cgu': 'cgu',
     'actualites': 'blog',
+    'actualites/:id': 'entry',
     'temoignages': 'testimony',
   },
 
@@ -17,6 +18,7 @@ module.exports = Marionette.AppRouter.extend({
   faq: function() { return this.render('faq/index', null) },
   cgu: function() { return this.render('cgu/index', null) },
   blog: function() { return this.render('blog/index', null) },
+  entry: function(id) { return this.render('blog/entry/index', {blog: id}) },
   testimony: function() { return this.render('testimony/index', null) },
 
   render: function(view, params) {

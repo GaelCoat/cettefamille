@@ -29,8 +29,10 @@
     "errorhandler": "^1.5.0",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "github-markdown-css": "^2.8.0",
     "jquery": "^3.2.1",
     "lusca": "^1.4.1",
+    "markdown": "^0.5.0",
     "method-override": "^2.3.8",
     "moment": "^2.18.1",
     "mongodb": "^2.2.25",
@@ -42,6 +44,7 @@
     "pug": "^2.0.0-beta6",
     "q": "^1.5.0",
     "serve-static": "^1.12.1",
+    "simplemde": "^1.11.2",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

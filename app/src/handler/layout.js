@@ -7,11 +7,44 @@ module.exports = Marionette.View.extend({
   events: {
     'click a[soft]': 'handleRedirect',
     'click aside a[soft]': 'handleActiv',
+    'click .open-dropdown': 'openDropdown',
+    'click': 'closeDropdown',
   },
 
   regions: {
     //footer: "#footer",
     content: "content"
+  },
+
+  initialize: function() {
+
+    this.$el.find('content').scroll(this.scroll);
+  },
+
+  scroll: _.throttle(function(e) {
+
+    var el = $(e.currentTarget);
+    var max = e.currentTarget.scrollHeight;
+    if (el.scrollTop() + el.outerHeight() >= max) Backbone.trigger('page:fetch');
+  }, 200),
+
+  openDropdown: function(e) {
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    var target = this.$el.find(e.currentTarget);
+
+    if (target.hasClass('open')) target.removeClass('open');
+    else this.closeDropdown(), target.addClass('open');
+
+    return this;
+  },
+
+  closeDropdown: function(e) {
+
+    this.$el.find('.open-dropdown.open').removeClass('open');
+    return this;
   },
 
   //-------------------------------------

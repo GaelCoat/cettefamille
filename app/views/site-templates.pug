@@ -1,0 +1,8 @@
+script(type="text/template", id="tpl-blog-preview")
+  a(href="/actualites/{{blog.get('_id')}}", soft)
+    span {{blog.getCreated('d MMMM')}}
+    h5 {{blog.get('title')}}
+    p {{blog.getPreview()}}
+    .read-more
+      i.fa.fa-caret-right
+      .s Lire plus
