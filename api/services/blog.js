@@ -46,7 +46,7 @@ var service = _.extend(core, {
 
     return q.fcall(function() {
 
-      return that.model.findOne({_id: id}).exec()
+      return that.model.findOne({_id: id}).populate('picture').exec()
     })
   },
 

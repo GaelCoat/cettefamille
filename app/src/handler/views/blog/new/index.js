@@ -6,10 +6,13 @@ module.exports = Marionette.View.extend({
 
   editor: null,
   edition: false,
+  picture: null,
   className: 'blog',
 
   events: {
-    'click #publish': 'publish'
+    'click #publish': 'publish',
+    'click #remove-picture': 'removePicture',
+    'change #cover': 'cover'
   },
 
   initialize: function(params) {
@@ -17,15 +20,44 @@ module.exports = Marionette.View.extend({
     if (params.blog) this.blog = params.blog;
   },
 
+  cover: function() {
+
+    var that = this;
+    var file = this.$el.find('#cover')[0].files[0];
+    this.$el.find('#cover').val('');
+    var reader = new FileReader();
+
+    reader.onload = function() {
+
+      that.picture = reader.result;
+      that.$el.find('.upload').hide();
+      that.$el.find('.cover').css('display', 'inline-block');
+      that.$el.find('.cover img').attr('src', that.picture);
+    }
+
+    reader.readAsDataURL(file);
+    return this;
+  },
+
+  removePicture: function() {
+
+    this.picture = null;
+    this.$el.find('.upload').show();
+    this.$el.find('.cover').hide();
+    this.$el.find('.cover img').attr('src', '');
+    return this;
+  },
+
   publish: function() {
 
     var that = this;
 
     var title = this.$el.find('#title').val();
+    var description = this.$el.find('#description').val();
     var content = this.editor.value();
 
-    if (title.length <= 0 || content.length <= 0) return this;
-    if (this.edition) return this.update(title, content);
+    if (title.length <= 0 || description.length <= 0 || content.length <= 0) return this;
+    if (this.edition) return this.update(title, description, content);
 
     return q.fcall(function() {
 
@@ -36,7 +68,9 @@ module.exports = Marionette.View.extend({
         url: '/blog/new',
         data: {
           title: title,
-          content: content
+          description: description,
+          content: content,
+          picture: that.picture
         }
       })
       .done(defer.resolve)
@@ -46,18 +80,20 @@ module.exports = Marionette.View.extend({
     .then(function(blog) {
 
       that.editor.value('');
-      that.$el.find('#title').val('');
+      that.$el.find('.infos').val('');
+      that.$el.find('.cover').hide();
       return that.success();
     });
   },
 
-  update: function(title, content) {
+  update: function(title, description, content) {
 
     var that = this;
+
     return q.fcall(function() {
 
       var defer = q.defer();
-      that.blog.save({title: title, content: content}, {
+      that.blog.save({title: title, description: description, content: content, picture: that.picture}, {
         success: defer.resolve,
         error: defer.reject
       });
@@ -94,6 +130,7 @@ module.exports = Marionette.View.extend({
     if (this.blog) {
       this.editor.value(this.blog.get('content'));
       this.$el.find('#title').val(this.blog.get('title'));
+      this.$el.find('#description').val(this.blog.get('description'));
       this.$el.find('#publish span').text('Modifier l\'article');
     }
     return this;

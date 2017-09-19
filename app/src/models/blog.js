@@ -7,17 +7,13 @@ module.exports = Backbone.Model.extend({
 
   defaults: {
     title: null,
+    description: null,
     content: null
   },
 
   getCreated: function(format) {
 
     return moment(this.get('created')).locale("fr").format(format);
-  },
-
-  getPreview: function() {
-
-    return this.get('content').slice(0, 150) + '...';
   },
 
 });

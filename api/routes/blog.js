@@ -5,12 +5,26 @@ var router = express.Router();
 
 // Service
 var Blog = require('../services/blog');
+var Picture = require('../services/picture');
 
 router.route('/new').post(function(req, res) {
 
   return q.fcall(function() {
 
-    return Blog.create(req.body);
+    if (req.body.picture) return Picture.upload(req.body.picture);
+    return false;
+  })
+  .then(function(model) {
+
+    var data = {
+      title: req.body.title,
+      content: req.body.content,
+      description: req.body.description
+    }
+
+    if (model) data.picture = model.get('_id');
+
+    return Blog.create(data);
   })
   .then(function(model) {
 
@@ -77,7 +91,21 @@ router.route('/:id')
 
   return q.fcall(function() {
 
-    return Blog.update(req.params.id, req.body);
+    if (req.body.picture) return Picture.upload(req.body.picture);
+    return false;
+  })
+  .then(function(model) {
+
+    var data = {
+      title: req.body.title,
+      content: req.body.content,
+      description: req.body.description,
+      picture: null
+    }
+
+    if (model) data.picture = model.get('_id');
+
+    return Blog.update(req.params.id, data);
   })
   .then(function(model) {
 

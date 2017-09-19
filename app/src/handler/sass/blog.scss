@@ -15,7 +15,7 @@
     width: 25%;
   }
 
-  #title {
+  .infos {
     width: 100%;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -45,6 +45,57 @@
   @media (max-width: 767px) {
     .markdown-body {
       padding: 15px;
+    }
+  }
+
+  .upload {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 14px;
+    color: $black;
+    font-size: 15px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+      height: 100%;
+      margin: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
+
+  .cover {
+    position: relative;
+    margin-bottom: 12px;
+    display: none;
+
+    i {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      background-color: #fff;
+      color: $grey;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 50px;
+
+      &:hover {
+        color: $black;
+      }
     }
   }
 

@@ -264,7 +264,7 @@ aside {
       white-space: nowrap; }
   .blog #list .legend .type:first-child {
     width: 25%; }
-  .blog #title {
+  .blog .infos {
     width: 100%;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -287,6 +287,45 @@ aside {
   @media (max-width: 767px) {
     .blog .markdown-body {
       padding: 15px; } }
+  .blog .upload {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 14px;
+    color: #3d3d3d;
+    font-size: 15px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    cursor: pointer; }
+    .blog .upload i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px; }
+    .blog .upload input {
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+      height: 100%;
+      margin: 0;
+      top: 0;
+      opacity: 0; }
+  .blog .cover {
+    position: relative;
+    margin-bottom: 12px;
+    display: none; }
+    .blog .cover i {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      background-color: #fff;
+      color: #b1b1b1;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 50px; }
+      .blog .cover i:hover {
+        color: #3d3d3d; }
   .blog .btns {
     text-align: right;
     width: 100%;

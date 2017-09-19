@@ -2,7 +2,15 @@
   h1 Nouvel article
 .row
   .markdown-body
-    input#title(type='text', placeholder='Titre de votre article')
+    input#title.infos(type='text', placeholder='Titre de votre article')
+    input#description.infos(type='text', placeholder='Description de votre article')
+    .upload
+      i.material-icons photo_camera
+      span Ajouter une image de couverture
+      input#cover(type='file')
+    .cover
+      img(src='')
+      i#remove-picture.material-icons close
     textarea#article
     .btns
       button#publish

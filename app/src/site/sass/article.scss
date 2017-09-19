@@ -6,11 +6,32 @@
   h2 {
     font-weight: 500;
     font-size: 34px;
+    margin-bottom: 8px;
+  }
+
+  p.description {
     margin-bottom: 24px;
+    color: #ababab;
+    font-size: 21px;
+    font-weight: 300;
+  }
+
+  #cover {
+    max-width: 100%;
+    display: none;
   }
 
   .markdown-body {
     color: $grey !important;
+    font-size: 17px;
+    margin-top: 60px;
+  }
+
+  .separator {
+    height: 3px;
+    width: 150px;
+    background-color: $light-blue;
+    margin: 60px 0;
   }
 
   li {

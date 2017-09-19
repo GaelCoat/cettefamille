@@ -31,8 +31,8 @@ app.set('views', __dirname + '/app/views/');
 app.use(cookieParser());
 app.use(methodOverride());
 
-app.use(bodyParser.json({ limit:'1mb' }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit:'5mb' }));
+app.use(bodyParser.urlencoded({limit: "5mb", extended: true, parameterLimit:5000}));
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Connexion à la base de données

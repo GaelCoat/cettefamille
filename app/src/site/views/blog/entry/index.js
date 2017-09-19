@@ -48,6 +48,8 @@ module.exports = Marionette.View.extend({
         blog: that.blog,
         content: Converter.toHTML(that.blog.get('content'))
       }));
+
+      if (that.blog.get('picture')) that.$el.find('#cover').show().attr('src', that.blog.get('picture').url);
       return that;
     })
   }
