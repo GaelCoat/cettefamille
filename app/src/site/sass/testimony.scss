@@ -44,7 +44,8 @@
           height: 80px;
           border-radius: 80px;
           margin-left: 40px;
-          background-color: transparentize($grey, .9);
+          background-size: cover;
+          display: none;
         }
       }
 

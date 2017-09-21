@@ -3,6 +3,13 @@
   color: $black;
   padding-right: 15%;
 
+  span.date {
+    margin-bottom: 24px;
+    color: #ababab;
+    display: block;
+    font-weight: 300;
+  }
+
   h2 {
     font-weight: 500;
     font-size: 34px;

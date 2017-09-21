@@ -62,3 +62,38 @@ script(type="text/template", id="tpl-blog")
         a.delete
           i.material-icons close
           | Supprimer
+
+script(type="text/template", id="tpl-testimony")
+  .col
+    span {{testimony.get('name')}}
+  .col
+    span {{testimony.get('content').slice(0, 50)}}
+  .col
+    span {{testimony.getCreated('DD/MM/YYYY')}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.edit(href="handling/testimony/new/{{testimony.get('_id')}}", soft)
+          i.material-icons mode_edit
+          | Modifier
+        a.delete
+          i.material-icons close
+          | Supprimer
+
+script(type="text/template", id="tpl-message")
+  .col
+    span {{message.get('name')}}
+  .col
+    span {{message.get('phone')}}
+  .col
+    span {{message.get('message')}}
+  .col
+    span {{message.getCreated('DD/MM/YYYY')}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.delete
+          i.material-icons close
+          | Supprimer
+  .toggle
+   p {{message.get('message')}}

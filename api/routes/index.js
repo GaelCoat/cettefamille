@@ -32,6 +32,8 @@ module.exports = function(app) {
   app.use('/family', require('./family'));
   app.use('/elderly', require('./elderly'));
   app.use('/blog', require('./blog'));
+  app.use('/testimony', require('./testimony'));
+  app.use('/message', require('./message'));
 
   app.route('/*').get(function(req, res) {
 

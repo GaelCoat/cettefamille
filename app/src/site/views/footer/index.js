@@ -4,9 +4,22 @@ module.exports = Marionette.View.extend({
 
   className: 'row',
 
-  initialize: function() {
+  getLastBlog: function() {
 
+    var that = this;
 
+    return q.fcall(function() {
+
+      var defer = q.defer();
+      $.ajax({ method: "GET", url: "/blog/last" })
+      .done(defer.resolve)
+      .fail(defer.reject);
+      return defer.promise;
+    })
+    .then(function(model) {
+
+      return model;
+    })
   },
 
   render: function() {
@@ -15,7 +28,17 @@ module.exports = Marionette.View.extend({
 
     return q.fcall(function() {
 
-      that.$el.html(tpl());
+      return that.getLastBlog();
+    })
+    .then(function(blog) {
+
+      var html = tpl();
+      var template = _.template(html);
+
+      that.$el.html(template({
+        blog: blog,
+      }));
+
       return that;
     })
   }

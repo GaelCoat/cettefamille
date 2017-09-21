@@ -7,17 +7,44 @@ html
     meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
     link(href="/css/handler.css", rel="stylesheet", type="text/css")
     link(href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600", rel="stylesheet")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
     base(href='/')
     //-link(rel='stylesheet', href='/css/app.css')
   body
     aside.menu
+      img.logo(src='/img/logo.png')
 
       ul
-        li
-          a(href='handling', soft) Tableau de bord
-        li
-          a(href='handling/blog', soft) Actualités
+        li(tab='home')
+          a(href='handling', soft)
+            i.material-icons dashboard
+            span Tableau de bord
+        li(tab='families')
+          a(href='handling/families', soft)
+            i.material-icons people
+            span Familles
+        li(tab='elderlies')
+          a(href='handling/elderlies', soft)
+            i.material-icons person
+            span Personnes agées
+        li(tab='messages')
+          a(href='handling/messages', soft)
+            i.material-icons mail
+            span Messages
+        li(tab='blog')
+          a(href='handling/blog', soft)
+            i.material-icons book
+            span Actualités
+        li(tab='testimony')
+          a(href='handling/testimony', soft)
+            i.material-icons assignment_ind
+            span Témoignages
+
+      a.dc(href='auth/logout')
+        i.fa.fa-sign-out
+        span Se déconnecter
+
     content
 
   .templates

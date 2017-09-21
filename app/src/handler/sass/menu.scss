@@ -7,29 +7,79 @@ aside {
   border-right: 1px solid transparentize($black, .9);
   width: 240px;
 
-  padding-top: 120px;
+  padding-top: 40px;
+
+  .logo {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+  }
 
   ul {
     display: block;
     width: 100%;
+    margin-top: 60px;
 
     li {
       display: block;
       width: 100%;
+      position: relative;
 
       a {
         display: block;
         width: 100%;
-        padding: 18px;
+        padding: 20px 24px;
         color: transparentize($black, .6);
         text-decoration: none;
         border-top: 2px solid transparentize($black, .95);
         font-size: 14px;
+
+        i {
+          display: inline-block;
+          margin-right: 8px;
+          vertical-align: middle;
+          position: relative;
+          top: -1px;
+        }
       }
 
       &:last-child a { border-bottom: 2px solid transparentize($black, .95); }
 
-      &.activ a { color: $black; }
+      &.activ {
+        a { color: $black; }
+
+        &:before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background-color: $blue;
+          content: "";
+        }
+
+        i { color: $blue; }
+      }
+    }
+  }
+
+  a.dc {
+    position: absolute;
+    bottom: 44px;
+    left: 24px;
+    font-size: 14px;
+    text-decoration: none;
+    color: $grey;
+
+    i {
+      display: inline-block;
+      font-size: 18px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      color: $black;
     }
   }
 }

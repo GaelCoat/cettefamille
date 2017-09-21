@@ -48,6 +48,21 @@
     }
   }
 
+  #content {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 14px;
+    font-size: 15px;
+    color: $black;
+    font-family: Montserrat;
+    font-weight: 400;
+    resize: none;
+    height: 400px;
+  }
+
   .upload {
     background-color: #fff;
     position: relative;
@@ -97,6 +112,10 @@
         color: $black;
       }
     }
+  }
+
+  &.testimony .cover {
+    width: 200px;
   }
 
   .btns {

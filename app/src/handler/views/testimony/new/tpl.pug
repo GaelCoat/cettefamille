@@ -1,0 +1,18 @@
+.row
+  h1 Nouveau témoignage
+.row
+  .markdown-body
+    input#name.infos(type='text', placeholder='Nom de la personne')
+    input#location.infos(type='text', placeholder='Département de la personne')
+    .upload
+      i.material-icons photo_camera
+      span Ajouter une image de couverture
+      input#cover(type='file')
+    .cover
+      img(src='')
+      i#remove-picture.material-icons close
+    textarea#content
+    .btns
+      button#publish
+        i.material-icons playlist_add_check
+        span Publier le témoignage

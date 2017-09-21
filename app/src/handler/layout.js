@@ -73,6 +73,8 @@ module.exports = Marionette.View.extend({
 
   loadView: function(path, params) {
 
+    if (params.tab) this.$el.find(".menu li[tab="+params.tab+"]").addClass('activ');
+
     var ItemView = req('./views/'+path+'.js');
 
     var view = new ItemView(params);

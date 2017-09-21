@@ -50,6 +50,7 @@ module.exports = Marionette.View.extend({
     var ItemView = req('./views/'+path+'.js');
     var view = new ItemView(params);
 
+    this.$el.removeClass('blue');
     this.getRegion('content').show(view);
 
     return this;

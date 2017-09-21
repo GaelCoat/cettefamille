@@ -6,7 +6,10 @@ module.exports = Marionette.View.extend({
 
   editor: null,
   edition: false,
+
   picture: null,
+  modifiedPicture: false,
+
   className: 'blog',
 
   events: {
@@ -26,6 +29,7 @@ module.exports = Marionette.View.extend({
     var file = this.$el.find('#cover')[0].files[0];
     this.$el.find('#cover').val('');
     var reader = new FileReader();
+    this.modifiedPicture = true;
 
     reader.onload = function() {
 
@@ -41,6 +45,7 @@ module.exports = Marionette.View.extend({
 
   removePicture: function() {
 
+    this.modifiedPicture = true;
     this.picture = null;
     this.$el.find('.upload').show();
     this.$el.find('.cover').hide();
@@ -93,7 +98,18 @@ module.exports = Marionette.View.extend({
     return q.fcall(function() {
 
       var defer = q.defer();
-      that.blog.save({title: title, description: description, content: content, picture: that.picture}, {
+
+      var data = {
+        title: title,
+        description: description,
+        content: content,
+        picture: true
+      }
+
+      if (that.modifiedPicture && (that.picture === null)) data.picture = false;
+      else if (that.modifiedPicture && that.picture) data.picture = that.picture;
+
+      that.blog.save(data, {
         success: defer.resolve,
         error: defer.reject
       });
@@ -132,6 +148,13 @@ module.exports = Marionette.View.extend({
       this.$el.find('#title').val(this.blog.get('title'));
       this.$el.find('#description').val(this.blog.get('description'));
       this.$el.find('#publish span').text('Modifier l\'article');
+
+      if (this.blog.get('picture')) {
+
+        this.$el.find('.upload').hide();
+        this.$el.find('.cover').css('display', 'inline-block');
+        this.$el.find('.cover img').attr('src', this.blog.get('picture').url);
+      }
     }
     return this;
   },

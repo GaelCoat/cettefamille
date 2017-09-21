@@ -22,3 +22,15 @@ header {
 
   }
 }
+
+body.blue header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  a {
+    color: #fff;
+  }
+}

@@ -12,7 +12,7 @@ module.exports = Marionette.AppRouter.extend({
     'temoignages': 'testimony',
   },
 
-  home: function() { return this.render('home', null) },
+  home: function() { return this.render('home/index', null) },
   becoming: function() { return this.render('family/index', null) },
   looking: function() { return this.render('elderly/index', null) },
   faq: function() { return this.render('faq/index', null) },

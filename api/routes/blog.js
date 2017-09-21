@@ -1,4 +1,5 @@
 var express = require('express');
+var _ = require('underscore');
 var passport = require('passport');
 var q = require('q');
 var router = express.Router();
@@ -34,7 +35,22 @@ router.route('/new').post(function(req, res) {
 
     console.log(err);
   })
+});
 
+router.route('/last').get(function(req, res) {
+
+  return q.fcall(function() {
+
+    return Blog.getLast();
+  })
+  .then(function(model) {
+
+    res.json(model);
+  })
+  .catch(function(err) {
+
+    console.log(err);
+  })
 });
 
 router.route('/count').get(function(req, res) {
@@ -91,21 +107,25 @@ router.route('/:id')
 
   return q.fcall(function() {
 
-    if (req.body.picture) return Picture.upload(req.body.picture);
-    return false;
+    var picture = req.body.picture
+
+    if (picture && _.isString(picture)) return Picture.upload(req.body.picture);
+    return picture;
   })
   .then(function(model) {
 
     var data = {
       title: req.body.title,
       content: req.body.content,
-      description: req.body.description,
-      picture: null
+      description: req.body.description
     }
 
-    if (model) data.picture = model.get('_id');
+    var deletion = false;
 
-    return Blog.update(req.params.id, data);
+    if (model && _.isObject(model)) data.picture = model.get('_id'), deletion = true;
+    else if (!model) data.picture = null, deletion = true;
+
+    return Blog.modify(req.params.id, data, deletion);
   })
   .then(function(model) {
 
@@ -120,7 +140,7 @@ router.route('/:id')
 
   return q.fcall(function() {
 
-    return Blog.remove(req.params.id);
+    return Blog.delete(req.params.id);
   })
   .then(function() {
 

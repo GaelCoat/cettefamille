@@ -105,4 +105,15 @@
       }
     }
   }
+
+  &.testimony .col,
+  &.testimony #list .legend .type {
+    width: 25% !important;
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

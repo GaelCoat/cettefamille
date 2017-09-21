@@ -1,7 +1,9 @@
+//$blue: #0054ff;
 $blue: #0054ff;
 $light-blue: #00b4ff;
 $black: #313131;
 $grey: #676767;
+$light-grey: #f4f5f9;
 $success: #43c36b;
 
 @mixin transform($value...) {
@@ -82,4 +84,5 @@ body {
 
 .row { width: 1100px; max-width: 90%; margin: 0 auto; }
 
-@import 'header', 'footer', 'forms', 'faq', 'blog', 'testimony', 'markdown', 'article';
+@import 'header', 'footer', 'forms', 'faq', 'blog', 'testimony', 'markdown', 'article', 'home';
+

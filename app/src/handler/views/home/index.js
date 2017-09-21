@@ -52,6 +52,28 @@ module.exports = Marionette.View.extend({
     });
   },
 
+  renderMessages: function() {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      var defer = q.defer();
+
+      $.ajax({
+        method: 'GET',
+        url: '/message/count'
+      })
+      .done(defer.resolve)
+      .fail(defer.reject);
+      return defer.promise;
+    })
+    .then(function(res) {
+
+      that.$el.find('#messages .count').text(res.count)
+    });
+  },
+
   render: function() {
 
     var that = this;
@@ -62,7 +84,8 @@ module.exports = Marionette.View.extend({
 
       return [
         that.renderFamilies(),
-        that.renderElderly()
+        that.renderElderly(),
+        that.renderMessages()
       ];
     })
 

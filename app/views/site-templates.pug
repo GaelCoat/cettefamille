@@ -6,3 +6,17 @@ script(type="text/template", id="tpl-blog-preview")
     .read-more
       i.fa.fa-caret-right
       .s Lire plus
+
+script(type="text/template", id="tpl-testimony-preview")
+  .col
+    h5
+      | {{testimony.get('name')}}
+      span {{testimony.get('location')}}
+    p {{testimony.get('content')}}
+  .col.avatar
+
+script(type="text/template", id="tpl-testimony-slider")
+  .avatar
+  .centered
+    blockquote " {{testimony.get('content')}} "
+    span {{testimony.get('name')}} - {{testimony.get('location')}}

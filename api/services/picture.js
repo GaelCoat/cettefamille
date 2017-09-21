@@ -50,6 +50,27 @@ var service = _.extend(core, {
     })
   },
 
+  delete: function(id) {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      return that.remove(id);
+    })
+    .then(function() {
+
+      var defer = q.defer();
+
+      fs.unlink('app/build/img/uploads/'+id+'.png', function(err) {
+        if (err) defer.reject(err)
+        defer.resolve();
+      });
+
+      return defer.promise;
+    })
+  },
+
 });
 
 module.exports = service;

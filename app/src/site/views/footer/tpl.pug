@@ -12,7 +12,8 @@
 .col
   a(href='/actualites', soft)
     span Blog
-    p Dernier article : Les 10 risques liés à la dépendance
+  a(href='/actualites/{{blog._id}}', soft)
+    p Dernier article : {{blog.title}}
   .separator
   a(href='/cgu', soft) Mentions légales et conditions générales
   a(href='/faq', soft) FAQ

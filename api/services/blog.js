@@ -6,6 +6,7 @@ var model = require('../models/blog');
 
 // Les services
 var core = new require('./core')();
+var Picture = require('./picture');
 
 var service = _.extend(core, {
 
@@ -20,6 +21,16 @@ var service = _.extend(core, {
       return that.model
                   .count()
                   .exec()
+    })
+  },
+
+  getLast: function() {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      return that.model.findOne({}, {}, {sort: {'created_at' : -1}}).exec();
     })
   },
 
@@ -47,6 +58,44 @@ var service = _.extend(core, {
     return q.fcall(function() {
 
       return that.model.findOne({_id: id}).populate('picture').exec()
+    })
+  },
+
+  modify: function(id, data, deletion) {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      return that.model.findOne({_id: id}).exec();
+    })
+    .then(function(model) {
+
+      if (model.get('picture') && deletion) return Picture.delete(model.get('picture'));
+      return that;
+    })
+    .then(function() {
+
+      return that.update(id, data);
+    })
+  },
+
+  delete: function(id) {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      return that.model.findOne({_id: id}).exec();
+    })
+    .then(function(model) {
+
+      if (model.get('picture')) return Picture.delete(model.get('picture'));
+      return that;
+    })
+    .then(function() {
+
+      return that.remove(id);
     })
   },
 

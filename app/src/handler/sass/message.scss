@@ -1,0 +1,42 @@
+.messages {
+
+  li{
+    cursor: pointer;
+    border: 1px solid transparentize($black, 1);
+    @include transition(background-color .2s);
+
+    &:hover,
+    &.showed {
+      border: 1px solid transparentize($black, .9);
+    }
+
+    .col:nth-child(3) span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 10px;
+    }
+
+    .toggle {
+      width: 100%;
+      display: none;
+      padding: 6px;
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid transparentize($black, .9);
+
+      p {
+        color: $black;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+    }
+
+    &.showed .toggle { display: block; }
+
+    &.seen:not(.showed) { background-color: #f3f3f3 !important;}
+
+  }
+
+}

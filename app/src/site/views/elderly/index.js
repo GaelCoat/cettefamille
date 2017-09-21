@@ -25,8 +25,7 @@ module.exports = Marionette.View.extend({
       data[field] = val;
     })
 
-    if (errors.length > 0) return this;
-
+    if (errors > 0) return this;
 
     return q.fcall(function() {
 
