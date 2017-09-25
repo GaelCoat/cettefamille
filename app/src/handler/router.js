@@ -4,6 +4,7 @@ module.exports = Marionette.AppRouter.extend({
   routes: {
     'handling': 'handling',
     'handling/blog/new(/:id)': 'newEntry',
+    'handling/admin/new(/:id)': 'newAdmin',
     'handling/testimony/new(/:id)': 'newTestimony',
     'handling/:id': 'handlers',
   },
@@ -12,6 +13,7 @@ module.exports = Marionette.AppRouter.extend({
   handlers: function(id) { return this.loadView(id+'/index', {tab: id}) },
 
   newEntry: function(id) { return this.loadView('blog/new/index', {blog: id}) },
+  newAdmin: function(id) { return this.loadView('admins/new/index', {admin: id}) },
   newTestimony: function(id) { return this.loadView('testimony/new/index', {testimony: id}) },
 
   loadView: function(view, params) {

@@ -215,6 +215,17 @@
         }
       }
 
+      blockquote {
+        color: $blue;
+        text-align: right;
+        font-style: italic;
+        width: 300px;
+        display: inline-block;
+        margin-top: 32px;
+        font-size: 17px;
+        line-height: 1.4;
+      }
+
       .stat {
         display: inline-block;
         position: relative;

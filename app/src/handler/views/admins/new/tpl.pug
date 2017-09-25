@@ -1,0 +1,28 @@
+.row
+  <% if (admin) { %>
+  h1 Modifier un compte
+  <% } else { %>
+  h1 Créer un compte
+  <% } %>
+.row
+  form
+    <% if (admin) { %>
+    input#username.form-control(type='text', placeholder='Nom d\'utilisateur', required, value="{{admin.get('username')}}")
+    input#mail.form-control(type='email', placeholder='Email', required, value="{{admin.get('mail')}}")
+
+    span Ne pas remplir si vous ne voulez pas modifier votre mot de passe
+    .error Mot de passe incorrect
+    input#password.form-control(type='password', placeholder='Mot de passe actuel' )
+    input#password-new.form-control(type='password', placeholder='Nouveau mot de passe' name="password-new")
+    .btns
+      button#update.btn.btn-primary.btn-block.btn-flat(type='submit')
+        span Confirmer
+    <% } else { %>
+    input#username.form-control(type='text', placeholder='Nom d\'utilisateur', required)
+    .error Mail déjà utilisé
+    input#mail.form-control(type='email', placeholder='Email', required)
+    input#password.form-control(type='password', placeholder='Mot de passe' , required)
+    .btns
+      button#create.btn.btn-primary.btn-block.btn-flat(type='submit')
+        span Confirmer
+    <% } %>

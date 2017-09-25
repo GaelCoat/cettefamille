@@ -1,0 +1,66 @@
+.signin {
+
+  form {
+    width: 400px;
+
+    > span {
+      color: $black;
+      display: block;
+      padding: 16px 4px;
+      font-size: 15px;
+      margin-top: 60px;
+      border-top: 2px solid transparentize($grey, .8);
+    }
+
+    .error {
+      color: $red;
+      display: block;
+      padding: 8px 4px;
+      font-size: 15px;
+      display: none;
+    }
+
+    input {
+      width: 100%;
+      background-color: #fff;
+      border-radius: 8px;
+      height: auto;
+      outline: none;
+      border: 1px solid transparentize($grey, .9);
+      color: $black;
+      font-size: 15px;
+      font-family: Montserrat;
+      display: block;
+      margin-bottom: 16px;
+      padding: 16px;
+    }
+
+    .btns {
+      text-align: right;
+      width: 100%;
+
+      button {
+        display: inline-block;
+        background-color: $blue;
+        padding: 12px 14px;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        @include transition(.22s);
+
+        &:hover {
+          background-color: $light-blue;
+        }
+
+        &.success {
+          background-color: $success;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

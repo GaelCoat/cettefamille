@@ -97,3 +97,20 @@ script(type="text/template", id="tpl-message")
           | Supprimer
   .toggle
    p {{message.get('message')}}
+
+script(type="text/template", id="tpl-admin")
+  .col
+    span {{admin.get('username')}}
+  .col
+    span {{admin.get('mail')}}
+  .col
+    span {{admin.getCreated('DD/MM/YYYY')}}
+  .actions
+    i.material-icons.open-dropdown more_horiz
+      .dropdown
+        a.edit(href="handling/admin/new/{{admin.get('_id')}}", soft)
+          i.material-icons mode_edit
+          | Modifier
+        a.delete
+          i.material-icons close
+          | Supprimer

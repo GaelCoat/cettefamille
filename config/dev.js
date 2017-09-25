@@ -13,6 +13,11 @@ var config = {
     api: {
       host: "mongodb://localhost/cettefamille"
     }
+  },
+  mail: {
+    api: '4587265ac3350349b4dfbda0f46f768e',
+    secret: '1c11d85389b11fc04867c00e3ea883fb',
+    from: 'stevelerobot@cettefamille.fr'
   }
 }
 

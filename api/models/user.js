@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+var q = require('q');
 var salt = 10;
 
 var schema = new mongoose.Schema({
@@ -14,9 +15,6 @@ schema.pre('save', function(next) {
   var user = this;
 
   if (!this.created) this.created = Date.now();
-
-  // only hash the password if it has been modified (or is new)
-  if (!user.isModified('password')) return next();
 
   // generate a salt
   bcrypt.genSalt(salt, function(err, salt) {
@@ -33,10 +31,31 @@ schema.pre('save', function(next) {
   });
 });
 
+schema.statics.definePassword = function(id, pwd) {
+
+  var that = this;
+  var defer = q.defer();
+
+  bcrypt.genSalt(salt, function(err, salt) {
+
+    if (err) defer.reject(err)
+
+    // hash the password using our new salt
+    bcrypt.hash(pwd, salt, function(err, hash) {
+
+      if (err) defer.reject(err)
+      defer.resolve(that.findOneAndUpdate({_id: id}, {password: hash}).exec());
+    });
+  });
+
+  return defer.promise;
+};
+
 schema.methods.comparePassword = function(candidatePassword) {
 
-  return bcrypt.compareSync(candidatePassword, this.password)
+  return bcrypt.compare(candidatePassword, this.password);
 };
+
 
 module.exports = mongoose.model('User', schema);
 

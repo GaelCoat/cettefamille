@@ -17,6 +17,13 @@ header {
         font-size: 16px;
         text-decoration: none;
         color: $black;
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        @include transition(.2s);
+
+        &:hover {
+          border-bottom: 2px solid $blue;
+        }
       }
     }
 

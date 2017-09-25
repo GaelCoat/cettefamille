@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Cette Famille - Connexion
+    title Basic Login
     meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
     link(href="/css/handler.css", rel="stylesheet", type="text/css")
   body#login
@@ -14,9 +14,8 @@ html
     //-   button.btn.btn-primary.btn-block.btn-flat(type='submit') Sign In
 
     .wrap
-      form(action='/login', method='post')
+      form(action='/reset/define?uid='+uid+'&rid='+rid, method='post')
         .wrapper
-          input.form-control(type='email', placeholder='Email', name='mail', value='zoul.gaelcoat@gmail.com', required)
-          input.form-control(type='password', placeholder='Mot de passe' name="password", value="123", required)
-        button.btn.btn-primary.btn-block.btn-flat(type='submit') Connexion
-        a.forget(href='/reset') Mot de passe oublié ?
+          input.form-control(type='password', placeholder='Mot de passe' name="password", required)
+          input.form-control(type='password', placeholder='Confirmer le mot de passe' name="password-confirm", required)
+        button.btn.btn-primary.btn-block.btn-flat(type='submit') Modifier

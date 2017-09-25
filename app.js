@@ -1,4 +1,5 @@
 var lusca = require('lusca');
+var q = require('q');
 var morgan = require('morgan');
 var config = require('config');
 var express = require('express');
@@ -88,11 +89,11 @@ passport.use('login', new LocalStrategy({
           console.log('User Not Found with mail '+mail);
           return done(null, false);
         }
-        if (!user.comparePassword(password)){
-          console.log('Invalid Password');
-          return done(null, false);
-        }
-        return done(null, user);
+        return user.comparePassword(password)
+        .then(function(res) {
+          if (!res) return done(null, false);
+          return done(null, user);
+        })
       }
     );
 }));
