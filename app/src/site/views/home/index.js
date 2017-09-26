@@ -86,7 +86,7 @@ module.exports = Marionette.View.extend({
     return q.fcall(function() {
 
       var defer = q.defer();
-      $.ajax({ method: "GET", url: "/testimony/list?page="+that.page+"&limit=5" })
+      $.ajax({ method: "GET", url: "/testimony/list?page=1&limit=5" })
       .done(defer.resolve)
       .fail(defer.reject);
       return defer.promise;

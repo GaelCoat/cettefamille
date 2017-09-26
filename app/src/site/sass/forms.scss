@@ -124,4 +124,23 @@ $error: #fd767c;
       }
     }
   }
+
+  @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    padding-top: 60px;
+    padding-bottom: 100px;
+    .col {
+      width: 100%;
+      display: block;
+
+      &:last-child {
+        text-align: center;
+        margin-top: 32px;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+  }
 }

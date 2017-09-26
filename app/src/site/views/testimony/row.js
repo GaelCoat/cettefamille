@@ -12,9 +12,6 @@ module.exports = Marionette.View.extend({
       testimony: this.model
     }));
 
-    console.log(this.model);
-    console.log('url('+this.model.get('picture').url+') cover');
-
     if (this.model.get('picture')) this.$el.find('.avatar').css({
       'background-image': 'url(../'+this.model.get('picture').url+')',
       'display': 'inline-block'

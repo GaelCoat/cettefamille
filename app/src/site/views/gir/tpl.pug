@@ -45,15 +45,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='coherence', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='coherence', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='coherence', data-answer='C')
           i.fa.fa-check
 
   li
@@ -64,15 +64,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='orientation', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='orientation', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='orientation', data-answer='C')
           i.fa.fa-check
 
   li
@@ -83,15 +83,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='toilette', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='toilette', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='toilette', data-answer='C')
           i.fa.fa-check
 
   li
@@ -102,15 +102,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='habillage', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='habillage', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='habillage', data-answer='C')
           i.fa.fa-check
 
   li
@@ -121,15 +121,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='alimentation', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='alimentation', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='alimentation', data-answer='C')
           i.fa.fa-check
 
   li
@@ -140,15 +140,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='elimination', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='elimination', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='elimination', data-answer='C')
           i.fa.fa-check
 
   li
@@ -159,15 +159,15 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='transferts', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='transferts', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='transferts', data-answer='C')
           i.fa.fa-check
 
   li
@@ -178,13 +178,44 @@ ul
     aside
       .each
         span A : Oui
-        .check.checked
+        .check.checked(data-item='deplacements', data-answer='A')
           i.fa.fa-check
       .each
         span B : Partiel
-        .check
+        .check(data-item='deplacements', data-answer='B')
           i.fa.fa-check
       .each
         span C : Non
-        .check
+        .check(data-item='deplacements', data-answer='C')
           i.fa.fa-check
+
+.bottom
+  .col
+    p
+      | A signifie : Bon, fait seul, totalement, régulièrement et correctement.
+      br
+      | B signifie : Fait partiellement ou irrégulièrement ou incorrectement.
+      br
+      | C signifie : Ne fait pas, ne peut pas ou ne veux pas le faire.
+
+    p
+      | Les 7 Variables illustratives suivantes sont non prises en compte dans le GIR :
+      br
+      | - Gérer ses propres affaires, son budget et ses biens.
+      br
+      | - Préparer ses repas et les conditionner pour être servis.
+      br
+      | - Effectuer l'ensemble des travaux ménagers.
+      br
+      | - Utiliser un moyen de transport (individuel ou collectif).
+      br
+      | - Acquisitions directes ou par correspondance (nourriture, vêtements, objets).
+      br
+      | - Se conformer à l'ordonnance du médecin.
+      br
+      | - Mesurer la socialisation (vacances, animations collectives/organisées).
+  .col
+    #result
+      span Total GIR
+      .count 6
+      button.restart Recommencer
