@@ -7,16 +7,10 @@ html
     meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
     link(href="/css/handler.css", rel="stylesheet", type="text/css")
   body#login
-    //- form(action='/auth/signin', method='post')
-    //-   input.form-control(type='text', placeholder='Username', name='username')
-    //-   input.form-control(type='email', placeholder='Email', name='mail')
-    //-   input.form-control(type='password', placeholder='Password' name="password")
-    //-   button.btn.btn-primary.btn-block.btn-flat(type='submit') Sign In
-
     .wrap
       form(action='/login', method='post')
         .wrapper
-          input.form-control(type='email', placeholder='Email', name='mail', value='zoul.gaelcoat@gmail.com', required)
-          input.form-control(type='password', placeholder='Mot de passe' name="password", value="123", required)
+          input.form-control(type='email', placeholder='Email', name='mail', required)
+          input.form-control(type='password', placeholder='Mot de passe' name="password", required)
         button.btn.btn-primary.btn-block.btn-flat(type='submit') Connexion
         a.forget(href='/reset') Mot de passe oublié ?
