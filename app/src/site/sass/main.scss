@@ -2,7 +2,7 @@
 $blue: #0054ff;
 $light-blue: #00b4ff;
 $black: #313131;
-$grey: #676767;
+$grey: #8a8a8a;
 $light-grey: #f4f5f9;
 $success: #43c36b;
 
@@ -31,6 +31,8 @@ $success: #43c36b;
 }
 
 * { margin: 0; padding: 0; list-style:  none; box-sizing: border-box;}
+
+a { cursor: pointer; }
 
 /* Float stuff */
 .left { float: left; }

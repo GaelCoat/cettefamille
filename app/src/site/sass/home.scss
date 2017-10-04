@@ -252,7 +252,7 @@
           color: $black;
           font-weight: 500;
           font-size: 20px;
-          margin-bottom: 18px;
+          margin-bottom: 8px;
         }
 
         p {
@@ -580,7 +580,7 @@
 
     p {
       font-size: 17px;
-      max-width: 52%;
+      max-width: 60%;
       line-height: 1.5;
       display: block;
       margin: auto;
@@ -617,7 +617,7 @@
     }
 
     .datas {
-      margin-top: 120px;
+      margin-top: 160px;
       width: 100%;
       text-align: center;
 
@@ -625,7 +625,7 @@
         width: 50%;
         margin-top: 24px;
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         padding-left: 70px;
         text-align: left;
         position: relative;
@@ -634,6 +634,7 @@
           padding-left: 0px;
           padding-right: 70px;
           text-align: right;
+          margin-top: 34px;
 
           &:after {
             position: absolute;
@@ -641,7 +642,7 @@
             top: 50%;
             width: 3px;
             background-color: $blue;
-            height: 60px;
+            height: 170px;
             border-radius: 3px;
             @include transform(translate(0, -50%));
             content: "";

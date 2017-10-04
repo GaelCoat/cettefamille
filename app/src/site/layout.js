@@ -53,6 +53,9 @@ module.exports = Marionette.View.extend({
     this.$el.removeClass('blue');
     this.getRegion('content').show(view);
 
+    $('html, body').scrollTop(0);
+    _.delay(function() { $('html, body').scrollTop(0); }, 200)
+
     return this;
   },
 

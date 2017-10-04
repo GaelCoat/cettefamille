@@ -4,6 +4,9 @@
   list-style: none;
   box-sizing: border-box; }
 
+a {
+  cursor: pointer; }
+
 /* Float stuff */
 .left {
   float: left; }
@@ -94,6 +97,7 @@ header {
         font-size: 16px;
         text-decoration: none;
         color: #313131;
+        padding-bottom: 4px;
         border-bottom: 2px solid transparent;
         cursor: pointer;
         transition: 0.2s;
@@ -181,7 +185,7 @@ footer {
       font-weight: 500;
       margin-bottom: 18px; }
     .forms .col p {
-      color: #676767;
+      color: #8a8a8a;
       font-size: 16px;
       font-weight: 300;
       margin-bottom: 18px;
@@ -220,7 +224,7 @@ footer {
           position: relative;
           padding: 10px;
           padding-right: 20px;
-          border-bottom: 2px solid rgba(103, 103, 103, 0.2);
+          border-bottom: 2px solid rgba(138, 138, 138, 0.2);
           color: #313131;
           background-color: transparent;
           transition: 0.33s;
@@ -312,7 +316,7 @@ footer {
   #terms .separator {
     width: 50px;
     height: 2px;
-    background-color: rgba(103, 103, 103, 0.2);
+    background-color: rgba(138, 138, 138, 0.2);
     display: block;
     margin-bottom: 24px; }
   #terms h3 {
@@ -324,7 +328,7 @@ footer {
   #terms p {
     font-size: 15px;
     font-weight: 300;
-    color: #676767;
+    color: #8a8a8a;
     line-height: 1.4; }
     #terms p a {
       display: inline;
@@ -366,7 +370,7 @@ footer {
         text-decoration: none; }
         #blog section article a span {
           font-weight: 400;
-          color: rgba(103, 103, 103, 0.6);
+          color: rgba(138, 138, 138, 0.6);
           font-size: 13px;
           display: block;
           margin-bottom: 24px;
@@ -378,7 +382,7 @@ footer {
           color: #313131; }
         #blog section article a p {
           font-weight: 300;
-          color: #676767;
+          color: #8a8a8a;
           font-size: 16px;
           max-width: 60%;
           line-height: 1.5; }
@@ -393,7 +397,7 @@ footer {
             left: 12px;
             top: -2px;
             bottom: -2px;
-            background-color: rgba(103, 103, 103, 0.1);
+            background-color: rgba(138, 138, 138, 0.1);
             transition: 0.3s 0.1s;
             -moz-transition: 0.3s 0.1s;
             -o-transition: 0.3s 0.1s;
@@ -477,7 +481,7 @@ footer {
           display: none; }
       #testimony section article span {
         font-weight: 400;
-        color: rgba(103, 103, 103, 0.6);
+        color: rgba(138, 138, 138, 0.6);
         font-size: 13px;
         display: inline-block;
         margin-left: 12px; }
@@ -488,7 +492,7 @@ footer {
         color: #313131; }
       #testimony section article p {
         font-weight: 300;
-        color: #676767;
+        color: #8a8a8a;
         font-size: 16px;
         max-width: 90%;
         line-height: 1.5; }
@@ -1091,7 +1095,7 @@ footer {
     max-width: 100%;
     display: none; }
   #article .markdown-body {
-    color: #676767 !important;
+    color: #8a8a8a !important;
     font-size: 17px;
     margin-top: 60px; }
   #article .separator {
@@ -1145,7 +1149,7 @@ footer {
         margin-bottom: 10px;
         font-weight: 500; }
       #home ul.regular li p {
-        color: #676767;
+        color: #8a8a8a;
         font-size: 15px;
         font-weight: 400;
         line-height: 1.5; }
@@ -1300,9 +1304,9 @@ footer {
           color: #313131;
           font-weight: 500;
           font-size: 20px;
-          margin-bottom: 18px; }
+          margin-bottom: 8px; }
         #home section.intro .col .block p {
-          color: #676767;
+          color: #8a8a8a;
           font-weight: 400;
           font-size: 16px;
           line-height: 1.4; }
@@ -1460,7 +1464,7 @@ footer {
           border-radius: 90px; }
     #home section.testimony .slider .arrow {
       background-color: #fff;
-      color: #676767;
+      color: #8a8a8a;
       position: absolute;
       top: 50%;
       padding: 18px;
@@ -1582,7 +1586,7 @@ footer {
     padding: 140px 0; }
     #home section.contact p {
       font-size: 17px;
-      max-width: 52%;
+      max-width: 60%;
       line-height: 1.5;
       display: block;
       margin: auto;
@@ -1616,28 +1620,29 @@ footer {
           position: relative;
           z-index: 2; }
     #home section.contact .datas {
-      margin-top: 120px;
+      margin-top: 160px;
       width: 100%;
       text-align: center; }
       #home section.contact .datas .col {
         width: 50%;
         margin-top: 24px;
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         padding-left: 70px;
         text-align: left;
         position: relative; }
         #home section.contact .datas .col:first-of-type {
           padding-left: 0px;
           padding-right: 70px;
-          text-align: right; }
+          text-align: right;
+          margin-top: 34px; }
           #home section.contact .datas .col:first-of-type:after {
             position: absolute;
             right: -2px;
             top: 50%;
             width: 3px;
             background-color: #0054ff;
-            height: 60px;
+            height: 170px;
             border-radius: 3px;
             transform: translate(0, -50%);
             -moz-transform: translate(0, -50%);
@@ -1650,7 +1655,7 @@ footer {
             font-size: 20px;
             font-weight: 500; }
           #home section.contact .datas .col:first-of-type span {
-            color: #676767;
+            color: #8a8a8a;
             font-size: 14px;
             font-weight: 300;
             margin-bottom: 32px;
@@ -1704,7 +1709,7 @@ footer {
             font-family: Montserrat;
             background-color: transparent;
             display: block;
-            border-bottom: 2px solid rgba(103, 103, 103, 0.2);
+            border-bottom: 2px solid rgba(138, 138, 138, 0.2);
             resize: none; }
             #home section.contact .datas .col form input:focus,
             #home section.contact .datas .col form textarea:focus {
@@ -1796,7 +1801,7 @@ footer {
           font-size: 18px;
           margin-bottom: 4px; }
         #gir ul li .description blockquote {
-          color: #676767;
+          color: #8a8a8a;
           font-size: 14px;
           line-height: 1.5; }
       #gir ul li aside {
@@ -1813,14 +1818,14 @@ footer {
           #gir ul li aside .each:first-child {
             margin-left: 0; }
           #gir ul li aside .each span {
-            color: #676767;
+            color: #8a8a8a;
             font-size: 15px;
             display: block;
             margin-bottom: 10px; }
           #gir ul li aside .each .check {
             width: 26px;
             height: 26px;
-            border: 3px solid rgba(103, 103, 103, 0.5);
+            border: 3px solid rgba(138, 138, 138, 0.5);
             border-radius: 60px;
             display: inline-block;
             position: relative;
@@ -1856,7 +1861,7 @@ footer {
         text-align: right; }
       #gir .bottom .col p {
         font-size: 15px;
-        color: #676767;
+        color: #8a8a8a;
         font-weight: 300; }
       #gir .bottom .col #result {
         background-color: #0054ff;
