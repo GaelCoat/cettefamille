@@ -6,7 +6,24 @@ var passport = require('passport');
 var express = require('express');
 var router = express.Router();
 
-var auth = require('../auth');
+var User = require('../services/user');
+
+var check = function() {
+
+  return q.fcall(function() {
+
+    return User.model.count().exec();
+  })
+  .then(function(count) {
+
+    if (count > 0) return count;
+    return User.create({
+      mail: 'admin@cettefamille.fr',
+      username: 'admin',
+      password: 'admin'
+    })
+  });
+};
 
 
 module.exports = function(app) {
@@ -43,6 +60,8 @@ module.exports = function(app) {
   });
 
 
+  // On regarde si il y a au moins un compte de créé
+  check();
   return app;
 }
 
