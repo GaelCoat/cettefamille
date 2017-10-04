@@ -1,5 +1,7 @@
+var env = process.env.NODE_ENV || 'local';
+
 var config = {
-  port: 6969,
+  port: process.env.PORT || 6969,
   session: {
     secret: "urMom4intn0b1Tch!",
     cookie: {
@@ -11,7 +13,7 @@ var config = {
   },
   mongo: {
     api: {
-      host: "mongodb://localhost/cettefamille"
+      host: process.env.MONGODB_ADDON_URI || "mongodb://localhost/cettefamille"
     }
   },
   mail: {
