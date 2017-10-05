@@ -63,7 +63,7 @@ var service = _.extend(core, {
       var defer = q.defer();
 
       fs.unlink('app/build/img/uploads/'+id+'.png', function(err) {
-        if (err) defer.reject(err)
+        if (err) defer.resolve(err)
         defer.resolve();
       });
 
