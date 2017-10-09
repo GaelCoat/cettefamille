@@ -14,7 +14,7 @@ module.exports = Marionette.View.extend({
 
 
     if (this.model.get('picture')) this.$el.find('.avatar').css({
-      'background-image': 'url(../'+this.model.get('picture').url+')'
+      'background-image': 'url('+this.model.get('picture').url+')'
     });
 
     return this;
