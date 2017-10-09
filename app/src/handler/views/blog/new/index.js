@@ -118,7 +118,7 @@ module.exports = Marionette.View.extend({
       that.$el.find('.infos').val('');
       that.$el.find('.upload').show();
       that.$el.find('.cover').hide();
-      return that.success('Article créer', 'Publier l\'article');
+      return that.success('Article créé', 'Publier l\'article');
     });
   },
 
@@ -149,7 +149,7 @@ module.exports = Marionette.View.extend({
     .then(function(res) {
 
       that.$el.find('.upload-loader').hide();
-      return that.success('Article modifier', 'Modifier l\'article');
+      return that.success('Article modifié', 'Modifier l\'article');
     })
   },
 
@@ -165,7 +165,10 @@ module.exports = Marionette.View.extend({
 
       btn.removeClass('success').find('span').text(reset);
       btn.find('i').text('playlist_add_check');
-    }, 2500);
+
+      Backbone.trigger('redirect', '/handling/blog');
+
+    }, 1500);
 
     return this;
   },

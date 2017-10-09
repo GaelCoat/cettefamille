@@ -17,6 +17,8 @@ module.exports = Marionette.Application.extend({
     this.layout = new Layout();
     this.layout.on('redirect', this.cleanRedirect.bind(this));
 
+    this.listenTo(Backbone, 'redirect', this.cleanRedirect.bind(this));
+
     return this;
   },
 

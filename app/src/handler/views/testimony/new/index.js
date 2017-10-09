@@ -113,7 +113,7 @@ module.exports = Marionette.View.extend({
       that.$el.find('.infos').val('');
       that.$el.find('.upload').show();
       that.$el.find('.cover').hide();
-      return that.success('Témoignage créer', 'Publier le témoignage');
+      return that.success('Témoignage créé', 'Publier le témoignage');
     });
   },
 
@@ -143,7 +143,7 @@ module.exports = Marionette.View.extend({
     .then(function(res) {
 
       that.$el.find('.upload-loader').hide();
-      return that.success('Témoignage modifier', 'Modifier le témoignage');
+      return that.success('Témoignage modifié', 'Modifier le témoignage');
     })
   },
 
@@ -159,7 +159,10 @@ module.exports = Marionette.View.extend({
 
       btn.removeClass('success').find('span').text(reset);
       btn.find('i').text('playlist_add_check');
-    }, 2500);
+
+      Backbone.trigger('redirect', '/handling/testimony');
+
+    }, 1500);
 
     return this;
   },
