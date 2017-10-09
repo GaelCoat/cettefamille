@@ -30,7 +30,7 @@ var service = _.extend(core, {
 
     return q.fcall(function() {
 
-      return that.model.findOne({}, {}, {sort: {'created_at' : -1}}).exec();
+      return that.model.findOne({}, {}, {sort: {'created_at' : 1}}).exec();
     })
   },
 
