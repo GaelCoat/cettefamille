@@ -53,27 +53,7 @@ module.exports = function(app) {
   app.use('/message', require('./message'));
   app.use('/reset', require('./reset'));
   app.use('/user', require('./user'));
-  app.use('/media', require('./media'));
-
-  app.route('/img/uploads/:id').get(function(req, res, next) {
-
-    var options = {
-      root: 'app/build/img/uploads/',
-      dotfiles: 'deny',
-      headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-      }
-    };
-
-    var fileName = req.params.id;
-    res.sendFile(fileName, options, function (err) {
-
-      if (err) next(err);
-      else console.log('Sent:', fileName);
-    });
-
-  });
+  app.use('/medias', require('./media'));
 
   app.route('/*').get(function(req, res) {
 

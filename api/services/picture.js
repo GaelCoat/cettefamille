@@ -7,6 +7,7 @@ var model = require('../models/picture');
 
 // Les services
 var core = new require('./core')();
+var S3 = require('./s3');
 
 var service = _.extend(core, {
 
@@ -24,25 +25,18 @@ var service = _.extend(core, {
     })
     .then(function(model) {
 
-      var defer = q.defer();
-      var image = uri.replace(/^data:([A-Za-z-+/]+);base64,/, '');
-      var path = 'app/build/';
-      var url = 'img/uploads/'+model.get('_id')+'.png';
-
-      fs.writeFile(path+url, image, 'base64', function(err) {
-        if (err) defer.reject(err)
-        defer.resolve(url);
-      });
-
       return [
         model.get('_id'),
-        defer.promise
+        S3.upload(uri, mime, model.get('_id'))
       ]
     })
     .all()
-    .spread(function(id, url) {
+    .spread(function(id, data) {
 
-      return that.update(id, {url: url});
+      return that.update(id, {
+        url: data.url,
+        name: data.name
+      });
     })
     .catch(function(err) {
 
@@ -56,21 +50,7 @@ var service = _.extend(core, {
 
     return q.fcall(function() {
 
-      var defer = q.defer();
-
-      /*return that.model
-                  .find()
-                  .sort('-created')
-                  .exec()*/
-
-      fs.readdir('app/build/img/uploads/', function(err, files) {
-
-        if (err) defer.resolve(err)
-        console.log(files);
-        defer.resolve(files);
-      });
-
-      return defer.promise;
+      return S3.list('images');
     })
   },
 
@@ -84,16 +64,7 @@ var service = _.extend(core, {
     })
     .then(function() {
 
-      var defer = q.defer();
-
-      fs.unlink('app/build/img/uploads/'+id+'.png', function(err) {
-        if (err) defer.resolve(err)
-
-        console.log('An image as been deleted: '+ id);
-        defer.resolve();
-      });
-
-      return defer.promise;
+      return S3.delete('/images/'+id);
     })
   },
 

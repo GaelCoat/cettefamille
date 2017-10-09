@@ -20,6 +20,14 @@ var config = {
     api: '4587265ac3350349b4dfbda0f46f768e',
     secret: '1c11d85389b11fc04867c00e3ea883fb',
     from: 'stevelerobot@cettefamille.fr'
+  },
+  s3: {
+    accessKeyId: "NRUZF_UYV-2K-9NIIXOY",
+    secretAccessKey: "2QlgnMRyb3nQrMudCvoO1MtgtQAea9Aj7XH84A==",
+    endpoint: "cellar.services.clever-cloud.com",
+    bucket: 'cette-famille',
+    host: 'https://cellar.services.clever-cloud.com/cette-famille/',
+    proxy: 'http://cette-famille.cleverapps.io/medias/'
   }
 }
 

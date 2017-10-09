@@ -1,3 +1,5 @@
+var Deletion = require('./delete');
+
 module.exports = Marionette.View.extend({
 
   template: '#tpl-testimony',
@@ -5,6 +7,23 @@ module.exports = Marionette.View.extend({
 
   events: {
     'click .delete': 'delete',
+  },
+
+  events: {
+    'click .delete': 'showDeletion',
+  },
+
+  showDeletion: function() {
+
+    var that = this;
+    this.deletion = new Deletion();
+    this.deletion.on('delete', this.delete.bind(this));
+    this.deletion.on('cancel', function() {
+
+      that.deletion.remove();
+    });
+
+    return this.deletion.render();
   },
 
   delete: function() {
@@ -21,6 +40,7 @@ module.exports = Marionette.View.extend({
     })
     .then(function(res) {
 
+      that.deletion.remove();
       return that.render();
     })
   },

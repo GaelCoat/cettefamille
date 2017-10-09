@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
   url:        { type: String },
+  name:       { type: String },
   type:       { type: String, required: true },
   created:    { type: Date }
 });
