@@ -310,7 +310,8 @@ aside {
     .blog #list ul li .col:first-child span {
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap; }
+      white-space: nowrap;
+      text-transform: none; }
   .blog #list .legend .type:first-child {
     width: 25%; }
   .blog .infos {
