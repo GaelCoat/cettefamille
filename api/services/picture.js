@@ -56,10 +56,21 @@ var service = _.extend(core, {
 
     return q.fcall(function() {
 
-      return that.model
+      var defer = q.defer();
+
+      /*return that.model
                   .find()
                   .sort('-created')
-                  .exec()
+                  .exec()*/
+
+      fs.readdir('app/build/img/uploads/', function(err, files) {
+
+        if (err) defer.resolve(err)
+        console.log(files);
+        defer.resolve(files);
+      });
+
+      return defer.promise;
     })
   },
 
@@ -77,6 +88,8 @@ var service = _.extend(core, {
 
       fs.unlink('app/build/img/uploads/'+id+'.png', function(err) {
         if (err) defer.resolve(err)
+
+        console.log('An image as been deleted: '+ id);
         defer.resolve();
       });
 
