@@ -20,7 +20,7 @@ module.exports = Marionette.View.extend({
 
   pagination: function(e) {
 
-    if (this.ended) return this;
+    if (this.ended || this.collection.length < 20) return this;
     this.page++;
     return this.fetch(false);
   },

@@ -1,46 +1,14 @@
 var tpl = require("pug-loader!./tpl.pug");
-var Collection = require('../../../collections/message');
+var Collection = require('../../../collections/media');
 var Table = require('./table');
 
 module.exports = Marionette.View.extend({
 
-  className: 'table messages',
-
-  sorting: 'idling',
-  page: 1,
-  ended: false,
-
-  events: {
-    'click .sort': 'sort',
-  },
+  className: 'table',
 
   initialize: function() {
 
     this.collection = new Collection();
-    this.listenTo(Backbone, 'page:fetch', this.pagination);
-  },
-
-  pagination: function(e) {
-
-    if (this.ended || this.collection.length < 20) return this;
-    this.page++;
-    return this.fetch(false);
-  },
-
-  sort: function(e) {
-
-    var el = this.$el.find(e.currentTarget)
-    var type = el.attr('sorting');
-
-    this.$el.find('.sort').removeClass('activ');
-    el.addClass('activ');
-
-    if (this.sorting === type) return this;
-
-    this.ended = false;
-    this.page = 1;
-    this.sorting = type;
-    return this.fetch(true);
   },
 
   fetch: function(reset) {
@@ -50,7 +18,7 @@ module.exports = Marionette.View.extend({
     return q.fcall(function() {
 
       var defer = q.defer();
-      $.ajax({ method: "GET", url: "/message/list?sorting="+that.sorting+"&page="+that.page })
+      $.ajax({ method: "GET", url: "/media/list" })
       .done(defer.resolve)
       .fail(defer.reject);
       return defer.promise;
@@ -61,6 +29,7 @@ module.exports = Marionette.View.extend({
 
       if (reset) that.collection.reset();
       that.collection.add(res.list);
+
       return that;
     })
   },

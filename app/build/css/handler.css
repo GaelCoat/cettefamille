@@ -303,6 +303,10 @@ aside {
   text-align: left; }
   .blog #list ul li .col:first-child {
     width: 25%; }
+    .blog #list ul li .col:first-child a {
+      text-decoration: none; }
+      .blog #list ul li .col:first-child a:hover {
+        text-decoration: underline; }
     .blog #list ul li .col:first-child span {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -486,6 +490,62 @@ aside {
     -webkit-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
+#deletion {
+  position: fixed;
+  background-color: rgba(61, 61, 61, 0.8);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  display: none; }
+  #deletion:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    height: 100%; }
+  #deletion .centered {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    width: 340px; }
+    #deletion .centered > span {
+      display: block; }
+    #deletion .centered button {
+      background-color: #b1b1b1;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 4px;
+      margin-top: 24px;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      transition: 0.2s;
+      -moz-transition: 0.2s;
+      -o-transition: 0.2s;
+      -ms-transition: 0.2s;
+      -webkit-transition: 0.2s; }
+      #deletion .centered button:hover {
+        background-color: rgba(177, 177, 177, 0.8); }
+      #deletion .centered button:last-child {
+        background-color: #fd517a; }
+        #deletion .centered button:last-child:hover {
+          background-color: rgba(253, 81, 122, 0.8); }
+      #deletion .centered button i {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 6px;
+        position: relative;
+        top: -1px; }
 
 @font-face {
   font-family: octicons-link;

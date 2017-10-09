@@ -50,6 +50,19 @@ var service = _.extend(core, {
     })
   },
 
+  getList: function() {
+
+    var that = this;
+
+    return q.fcall(function() {
+
+      return that.model
+                  .find()
+                  .sort('-created')
+                  .exec()
+    })
+  },
+
   delete: function(id) {
 
     var that = this;
