@@ -25,8 +25,12 @@ module.exports = Marionette.View.extend({
     var that = this;
     var file = this.$el.find('#cover')[0].files[0];
     this.$el.find('#cover').val('');
+    this.$el.find('.upload-alert').hide();
     var reader = new FileReader();
     this.modifiedPicture = true;
+
+    var size = file.size / 1024;
+    if (size >= 2000) return this.showUploadAlert();
 
     reader.onload = function() {
 
@@ -37,6 +41,25 @@ module.exports = Marionette.View.extend({
     }
 
     reader.readAsDataURL(file);
+    return this;
+  },
+
+  showUploadAlert: function() {
+
+    this.modifiedPicture = false;
+    this.$el.find('.upload-alert').show();
+    return this;
+  },
+
+  showUploadLoader: function() {
+
+    var that = this;
+
+    _.delay(function() {
+
+      if (!that.done) that.$el.find('.upload-loader').show();
+    }, 800);
+
     return this;
   },
 
@@ -59,7 +82,12 @@ module.exports = Marionette.View.extend({
     var content = this.$el.find('#content').val();
 
     if (name.length <= 0 || location.length <= 0 || content.length <= 0) return this;
+
+    this.done = false;
+
     if (this.edition) return this.update(name, location, content);
+
+    if (this.picture) this.showUploadLoader();
 
     return q.fcall(function() {
 
@@ -81,9 +109,11 @@ module.exports = Marionette.View.extend({
     })
     .then(function(testimony) {
 
+      that.$el.find('.upload-loader').hide();
       that.$el.find('.infos').val('');
+      that.$el.find('.upload').show();
       that.$el.find('.cover').hide();
-      return that.success();
+      return that.success('Témoignage créer', 'Publier le témoignage');
     });
   },
 
@@ -101,7 +131,7 @@ module.exports = Marionette.View.extend({
       }
 
       if (that.modifiedPicture && (that.picture === null)) data.picture = false;
-      else if (that.modifiedPicture && that.picture) data.picture = that.picture;
+      else if (that.modifiedPicture && that.picture) data.picture = that.picture, that.showUploadLoader();
 
       var defer = q.defer();
       that.testimony.save(data, {
@@ -112,19 +142,22 @@ module.exports = Marionette.View.extend({
     })
     .then(function(res) {
 
-      return that;
+      that.$el.find('.upload-loader').hide();
+      return that.success('Témoignage modifier', 'Modifier le témoignage');
     })
   },
 
-  success: function() {
+  success: function(txt, reset) {
+
+    this.done = true;
 
     var btn = this.$el.find('#publish');
-    btn.addClass('success').find('span').text('Témoignage créer')
+    btn.addClass('success').find('span').text(txt)
     btn.find('i').text('check');
 
     _.delay(function() {
 
-      btn.removeClass('success').find('span').text('Publier le témoignage');
+      btn.removeClass('success').find('span').text(reset);
       btn.find('i').text('playlist_add_check');
     }, 2500);
 
@@ -168,7 +201,7 @@ module.exports = Marionette.View.extend({
         that.$el.find('#content').val(that.testimony.get('content'));
         that.$el.find('#name').val(that.testimony.get('name'));
         that.$el.find('#location').val(that.testimony.get('location'));
-        that.$el.find('#publish span').text('Modifier l\'article');
+        that.$el.find('#publish span').text('Modifier le témoignage');
 
         if (that.testimony.get('picture')) {
 

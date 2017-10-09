@@ -26,7 +26,6 @@ module.exports = Marionette.View.extend({
     return this.fetch(false);
   },
 
-
   fetch: function(reset) {
 
     var that = this;

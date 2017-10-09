@@ -369,6 +369,17 @@ aside {
       margin: 0;
       top: 0;
       opacity: 0; }
+  .blog .upload-alert {
+    display: none;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    color: #fd517a; }
+    .blog .upload-alert i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+      position: relative;
+      top: -2px; }
   .blog .cover {
     position: relative;
     margin-bottom: 12px;
@@ -418,6 +429,63 @@ aside {
       .blog .btns button.success {
         background-color: #43c36b;
         pointer-events: none; }
+  .blog .upload-loader {
+    position: fixed;
+    background-color: rgba(61, 61, 61, 0.8);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    display: none; }
+    .blog .upload-loader:before {
+      display: inline-block;
+      vertical-align: middle;
+      content: "";
+      height: 100%; }
+    .blog .upload-loader .centered {
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 32px;
+      text-align: left; }
+      .blog .upload-loader .centered i {
+        -webkit-animation: rotating 2s linear infinite;
+        -moz-animation: rotating 2s linear infinite;
+        -ms-animation: rotating 2s linear infinite;
+        -o-animation: rotating 2s linear infinite;
+        animation: rotating 2s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+        font-size: 24px;
+        margin-right: 10px; }
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 @font-face {
   font-family: octicons-link;

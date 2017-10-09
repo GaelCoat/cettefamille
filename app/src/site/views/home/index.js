@@ -1,6 +1,7 @@
 var tpl = require("pug-loader!./tpl.pug");
 var Collection = require('../../../collections/testimony');
 var Table = require('./table');
+var Appear = require('./appear');
 
 module.exports = Marionette.View.extend({
 
@@ -16,6 +17,14 @@ module.exports = Marionette.View.extend({
   initialize: function() {
 
     this.testimonies = new Collection();
+  },
+
+  initAppear: function() {
+
+    this.$el.find('section').appear({force_process: true});
+    this.$el.find('section').on('appear', function(event, $els) {  $els.addClass('appeared');  });
+
+    return this;
   },
 
   autosize: function(e) {
@@ -116,6 +125,8 @@ module.exports = Marionette.View.extend({
 
       $('body').addClass('blue');
       that.$el.html(tpl());
+
+      that.initAppear();
       return that.fetchTestimonies();
     })
   }

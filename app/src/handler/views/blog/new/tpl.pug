@@ -4,6 +4,9 @@
   .markdown-body
     input#title.infos(type='text', placeholder='Titre de votre article')
     input#description.infos(type='text', placeholder='Description de votre article')
+    .upload-alert
+      i.material-icons error_outline
+      span L'image ne doit pas dépasser 2mb
     .upload
       i.material-icons photo_camera
       span Ajouter une image de couverture
@@ -16,3 +19,7 @@
       button#publish
         i.material-icons playlist_add_check
         span Publier l'article
+.upload-loader
+  .centered
+    i.fa.fa-spinner
+    span Image en cours de téléchargement
