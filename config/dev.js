@@ -22,9 +22,9 @@ var config = {
     from: 'stevelerobot@cettefamille.fr'
   },
   s3: {
-    accessKeyId: "NRUZF_UYV-2K-9NIIXOY",
-    secretAccessKey: "2QlgnMRyb3nQrMudCvoO1MtgtQAea9Aj7XH84A==",
-    endpoint: "cellar.services.clever-cloud.com",
+    accessKeyId: process.env.CELLAR_ADDON_KEY_ID || "NRUZF_UYV-2K-9NIIXOY",
+    secretAccessKey: process.env.CELLAR_ADDON_KEY_SECRET || "2QlgnMRyb3nQrMudCvoO1MtgtQAea9Aj7XH84A==",
+    endpoint: process.env.CELLAR_ADDON_HOST || "cellar.services.clever-cloud.com",
     bucket: 'cette-famille',
     host: 'https://cellar.services.clever-cloud.com/cette-famille/',
     proxy: 'http://cette-famille.cleverapps.io/medias/'
