@@ -8,6 +8,7 @@ module.exports = Marionette.View.extend({
     //footer: "#footer",
     content: "main",
     header: "header",
+    subheader: "#subheader",
     footer: "footer"
   },
 
@@ -70,6 +71,17 @@ module.exports = Marionette.View.extend({
     return this;
   },
 
+  renderSubHeader: function() {
+
+    var ItemView = req('./views/subheader/index.js');
+
+    var view = new ItemView();
+    this.getRegion('subheader').empty();
+    this.getRegion('subheader').show(view);
+
+    return this;
+  },
+
   renderFooter: function() {
 
     var ItemView = req('./views/footer/index.js');
@@ -85,6 +97,7 @@ module.exports = Marionette.View.extend({
 
     return [
       this.renderHeader(),
+      this.renderSubHeader(),
       this.renderFooter()
     ];
   },

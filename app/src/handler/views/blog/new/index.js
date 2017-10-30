@@ -1,5 +1,5 @@
 var tpl = require("pug-loader!./tpl.pug");
-var SimpleMDE = require('Simplemde');
+var Quill = require('quill');
 var Blog = require('../../../../models/blog');
 
 module.exports = Marionette.View.extend({
@@ -76,21 +76,36 @@ module.exports = Marionette.View.extend({
     return this;
   },
 
+  hasB64: function(data) {
+
+    var image = false;
+
+    _.forEach(data.ops, function(item) {
+
+      var str = item.insert.image;
+
+      if (str && !str.match(/https/gi)) image = true;
+    })
+
+    return image;
+  },
+
   publish: function() {
 
     var that = this;
 
     var title = this.$el.find('#title').val();
     var description = this.$el.find('#description').val();
-    var content = this.editor.value();
+    var content = this.editor.getContents();
+    var length = this.editor.getLength();
 
-    if (title.length <= 0 || description.length <= 0 || content.length <= 0) return this;
+    if (title.length <= 0 || description.length <= 0 || length <= 1) return this;
 
     this.done = false;
 
     if (this.edition) return this.update(title, description, content);
 
-    if (this.picture) this.showUploadLoader();
+    if (this.picture || this.hasB64(content)) this.showUploadLoader();
 
     return q.fcall(function() {
 
@@ -102,7 +117,7 @@ module.exports = Marionette.View.extend({
         data: {
           title: title,
           description: description,
-          content: content,
+          content: content.ops,
           picture: that.picture
         }
       })
@@ -114,12 +129,15 @@ module.exports = Marionette.View.extend({
 
       that.$el.find('.upload-loader').hide();
 
-      that.editor.value('');
       that.$el.find('.infos').val('');
       that.$el.find('.upload').show();
       that.$el.find('.cover').hide();
       return that.success('Article créé', 'Publier l\'article');
-    });
+    })
+    .catch(function(err) {
+
+      console.log(err);
+    })
   },
 
   update: function(title, description, content) {
@@ -133,11 +151,12 @@ module.exports = Marionette.View.extend({
       var data = {
         title: title,
         description: description,
-        content: content,
+        content: content.ops,
         picture: true
       }
 
-      if (that.modifiedPicture && (that.picture === null)) data.picture = false;
+      if (that.hasB64(content)) that.showUploadLoader();
+      else if (that.modifiedPicture && (that.picture === null)) data.picture = false;
       else if (that.modifiedPicture && that.picture) data.picture = that.picture, that.showUploadLoader();
 
       that.blog.save(data, {
@@ -173,15 +192,35 @@ module.exports = Marionette.View.extend({
     return this;
   },
 
-  initMDE: function() {
 
-    this.editor = new SimpleMDE({
-      element: $("#article")[0],
-      spellChecker: false
+  initEditor: function() {
+
+    var that = this;
+
+    var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['blockquote', 'link', 'image'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']                                         // remove formatting button
+    ];
+
+    this.editor = new Quill('#editor', {
+      modules: { toolbar: toolbarOptions},
+      theme: 'snow'
     });
 
     if (this.blog) {
-      this.editor.value(this.blog.get('content'));
+      this.editor.setContents(this.blog.get('content'));
       this.$el.find('#title').val(this.blog.get('title'));
       this.$el.find('#description').val(this.blog.get('description'));
       this.$el.find('#publish span').text('Modifier l\'article');
@@ -229,7 +268,7 @@ module.exports = Marionette.View.extend({
     })
     .then(function() {
 
-      return that.initMDE();
+      return that.initEditor();
     })
   }
 

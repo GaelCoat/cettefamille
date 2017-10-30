@@ -1,5 +1,5 @@
 //$blue: #0054ff;
-$blue: #0054ff;
+$blue: #0072ff;
 $light-blue: #00b4ff;
 $black: #313131;
 $grey: #8a8a8a;
@@ -86,5 +86,5 @@ body {
 
 .row { width: 1100px; max-width: 90%; margin: 0 auto; }
 
-@import 'header', 'footer', 'forms', 'faq', 'blog', 'testimony', 'markdown', 'article', 'home', 'gir';
+@import 'header', 'subheader', 'footer', 'forms', 'faq', 'blog', 'testimony', 'markdown', 'article', 'home', 'gir';
 

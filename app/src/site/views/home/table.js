@@ -26,6 +26,14 @@ var View = Marionette.View.extend({
 
   currentSlide: 0,
   maxSlide: 0,
+  timer: null,
+
+  initTimer: function() {
+
+    clearInterval(this.timer);
+    this.timer = setInterval(this.next.bind(this), 5000);
+    return this;
+  },
 
   slideTo: function(e) {
 
@@ -55,7 +63,7 @@ var View = Marionette.View.extend({
 
     this.$el.find('.dot').removeClass('current');
     this.$el.find(".dot[data-slide='"+this.currentSlide+"']").addClass('current');
-    return this;
+    return this.initTimer();
   },
 
   renderDots: function() {
@@ -64,7 +72,7 @@ var View = Marionette.View.extend({
 
     for (var i = 0; i < this.maxSlide; i++) this.renderDot(i);
 
-    return this;
+    return this.initTimer();
   },
 
   renderDot: function(i) {

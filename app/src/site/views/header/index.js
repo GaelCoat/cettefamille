@@ -13,11 +13,11 @@ module.exports = Marionette.View.extend({
     var that = this;
 
     var to = that.$el.find(e.currentTarget).data('anchor');
-    if ($('#'+to).get(0)) return $('html, body').animate( { scrollTop: $('#'+to).offset().top }, 600 );
+    if ($('#'+to).get(0)) return $('html, body').animate( { scrollTop: $('#'+to).offset().top + 100 }, 600 );
 
     _.delay(function() {
 
-      $('html, body').animate( { scrollTop: $('#'+to).offset().top }, 600 );
+      $('html, body').animate( { scrollTop: $('#'+to).offset().top + 100 }, 600 );
     }, 500);
 
     return this;

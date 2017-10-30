@@ -25,7 +25,7 @@ router.route('/new').post(function(req, res) {
 
     if (model) data.picture = model.get('_id');
 
-    return Blog.create(data);
+    return Blog.new(data);
   })
   .then(function(model) {
 

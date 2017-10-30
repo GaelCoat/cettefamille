@@ -1,6 +1,6 @@
 var tpl = require("pug-loader!./tpl.pug");
 var Blog = require('../../../../models/blog');
-var Converter = require('markdown').markdown;
+var Converter = require('quill-delta-to-html');
 
 module.exports = Marionette.View.extend({
 
@@ -44,13 +44,20 @@ module.exports = Marionette.View.extend({
       var html = tpl();
       var template = _.template(html);
 
+      var converter = new Converter(that.blog.get('content'));
+      var content = converter.convert();
+
       that.$el.html(template({
         blog: that.blog,
-        content: Converter.toHTML(that.blog.get('content'))
+        content: content,
       }));
 
       if (that.blog.get('picture')) that.$el.find('#cover').show().attr('src', that.blog.get('picture').url);
       return that;
+    })
+    .catch(function(err) {
+
+      console.log();
     })
   }
 

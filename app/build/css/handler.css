@@ -53,7 +53,7 @@ content {
 
 a.new {
   float: right;
-  background-color: #0054ff;
+  background-color: #0072ff;
   padding: 12px 14px;
   border-radius: 8px;
   font-size: 14px;
@@ -157,10 +157,10 @@ aside {
         top: 0;
         bottom: 0;
         width: 4px;
-        background-color: #0054ff;
+        background-color: #0072ff;
         content: ""; }
       aside ul li.activ i {
-        color: #0054ff; }
+        color: #0072ff; }
   aside a.dc {
     position: absolute;
     bottom: 44px;
@@ -224,7 +224,7 @@ aside {
     border-bottom: 2px solid transparent; }
     .table ul.sorting li.activ {
       color: #3d3d3d;
-      border-bottom: 2px solid #0054ff; }
+      border-bottom: 2px solid #0072ff; }
     .table ul.sorting li:hover {
       color: #3d3d3d; }
 
@@ -408,7 +408,7 @@ aside {
     padding-top: 16px; }
     .blog .btns button {
       display: inline-block;
-      background-color: #0054ff;
+      background-color: #0072ff;
       padding: 12px 14px;
       border-radius: 4px;
       font-size: 14px;
@@ -1811,7 +1811,7 @@ span.CodeMirror-selectedtext {
         #login .wrap form input:focus {
           outline: none; }
       #login .wrap form button {
-        background-color: #0054ff;
+        background-color: #0072ff;
         width: 100%;
         margin-top: 24px;
         padding: 18px;
@@ -1830,7 +1830,7 @@ span.CodeMirror-selectedtext {
         #login .wrap form button:hover {
           background-color: #00b4ff; }
       #login .wrap form a.forget {
-        color: #0054ff;
+        color: #0072ff;
         display: block;
         margin: 0 auto;
         margin-top: 16px;
@@ -1874,7 +1874,7 @@ span.CodeMirror-selectedtext {
     width: 100%; }
     .signin form .btns button {
       display: inline-block;
-      background-color: #0054ff;
+      background-color: #0072ff;
       padding: 12px 14px;
       border-radius: 4px;
       font-size: 14px;

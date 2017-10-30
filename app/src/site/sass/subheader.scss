@@ -1,0 +1,40 @@
+#subheader {
+  padding: 8px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  background-color: $blue;
+  opacity: 0;
+  @include transform(translate(0, -100%));
+  @include transition(.22s);
+  border-bottom: 2px solid $light-blue;
+
+  &.showed {
+    opacity: 1;
+    @include transform(translate(0, 0));
+  }
+
+  img { width: 75px; }
+
+  .right {
+    color: #fff;
+    margin-top: 3px;
+
+    span {
+      display: inline-block;
+      background-color: $light-blue;
+      padding: 6px 12px;
+      border-radius: 30px;
+      margin-left: 8px;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    display: none;
+  }
+}

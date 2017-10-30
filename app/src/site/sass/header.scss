@@ -3,6 +3,7 @@ header {
   padding-top: 50px;
 
   img { width: 100px; }
+  img.white { display: none; }
 
   ul {
     text-align: right;
@@ -46,4 +47,8 @@ body.blue header {
   a {
     color: #fff;
   }
+
+
+  img.white { display: block; }
+  img.color { display: none; }
 }

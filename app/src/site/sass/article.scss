@@ -29,9 +29,10 @@
   }
 
   .markdown-body {
-    color: $grey !important;
     font-size: 17px;
     margin-top: 60px;
+    padding: 0 !important;
+    overflow: inherit;
   }
 
   .separator {
