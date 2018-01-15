@@ -21,6 +21,9 @@ module.exports = Marionette.View.extend({
 
   initAppear: function() {
 
+    // Mobile navbar security
+    if ($(window).width() <= 1000) this.$el.find('section.main').height($(window).height()), console.log('ee');
+
     this.$el.find('section').appear({force_process: true});
     this.$el.find('section').on('appear', function(event, $els) {  $els.addClass('appeared');  });
 

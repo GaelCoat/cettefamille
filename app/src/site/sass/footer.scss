@@ -47,21 +47,40 @@ footer {
       bottom: 0;
       color: #fff;
       font-size: 15px;
+
+      a.mobile {
+        display: none;
+      }
     }
   }
 
   @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
 
-    height: 550px;
+    height: auto;
     padding: 24px 0;
 
     .col {
       width: 100%;
       height: 50%;
 
+      &:first-child .bot {
+        display: none;
+      }
+
       &:last-child {
         padding-top: 32px;
+
+        .bot {
+          position: relative;
+          margin-top: 42px;
+
+          a {
+            margin-bottom: 4px;
+            display: block;
+          }
+        }
       }
     }
   }
+
 }

@@ -157,16 +157,25 @@ body.blue header {
     width: 75px; }
   #subheader .right {
     color: #fff;
-    margin-top: 3px; }
+    margin-top: 4px;
+    font-size: 14px; }
     #subheader .right span {
       display: inline-block;
       background-color: #00b4ff;
       padding: 6px 12px;
       border-radius: 30px;
-      margin-left: 8px; }
+      margin-left: 12px; }
   @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
     #subheader {
-      display: none; } }
+      padding: 10px 0; }
+      #subheader .left {
+        display: none; }
+      #subheader .right {
+        float: none;
+        text-align: center; }
+        #subheader .right span {
+          margin-left: 0;
+          margin-top: 6px; } }
 
 footer {
   background-color: #0072ff;
@@ -207,15 +216,25 @@ footer {
       bottom: 0;
       color: #fff;
       font-size: 15px; }
+      footer .col .bot a.mobile {
+        display: none; }
   @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
     footer {
-      height: 550px;
+      height: auto;
       padding: 24px 0; }
       footer .col {
         width: 100%;
         height: 50%; }
+        footer .col:first-child .bot {
+          display: none; }
         footer .col:last-child {
-          padding-top: 32px; } }
+          padding-top: 32px; }
+          footer .col:last-child .bot {
+            position: relative;
+            margin-top: 42px; }
+            footer .col:last-child .bot a {
+              margin-bottom: 4px;
+              display: block; } }
 
 .forms {
   padding: 160px 0;
@@ -1468,6 +1487,17 @@ footer {
         top: 20%;
         font-size: 26px;
         color: #8a8a8a; }
+        @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
+          #home section.steps li i {
+            right: 50%;
+            margin-right: -10px;
+            font-size: 20px;
+            top: 110%;
+            transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg); } }
   #home section.testimony .slider {
     background-color: #0072ff;
     box-shadow: 10px 18px 45px 0 rgba(0, 114, 255, 0.2);

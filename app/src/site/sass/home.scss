@@ -376,6 +376,14 @@
         top: 20%;
         font-size: 26px;
         color: $grey;
+
+        @media only screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio: 1.5) {
+          right: 50%;
+          margin-right: -10px;
+          font-size: 20px;
+          top: 110%;
+          @include transform(rotate(90deg));
+        }
       }
     }
   }
