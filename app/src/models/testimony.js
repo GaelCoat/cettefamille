@@ -16,4 +16,9 @@ module.exports = Backbone.Model.extend({
     return moment(this.get('created')).locale("fr").format(format);
   },
 
+  getContent: function() {
+
+    return this.get('content').replace(/\n/gi, '<br>');
+  },
+
 });

@@ -12,11 +12,11 @@ script(type="text/template", id="tpl-testimony-preview")
     h5
       | {{testimony.get('name')}}
       span {{testimony.get('location')}}
-    p {{testimony.get('content')}}
+    p {{testimony.getContent()}}
   .col.avatar
 
 script(type="text/template", id="tpl-testimony-slider")
   .avatar
   .centered
-    blockquote " {{testimony.get('content')}} "
+    blockquote " {{testimony.getContent()}} "
     span {{testimony.get('name')}} - {{testimony.get('location')}}
