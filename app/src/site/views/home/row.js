@@ -7,9 +7,13 @@ module.exports = Marionette.View.extend({
 
     var html = $(this.template).html();
     var template = _.template(html);
+    var mobile = false;
+
+    if ($(window).width() <= 1000) mobile = true;
 
     this.$el.html(template({
-      testimony: this.model
+      testimony: this.model,
+      mobile: mobile
     }));
 
 

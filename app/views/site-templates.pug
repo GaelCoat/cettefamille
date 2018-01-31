@@ -18,5 +18,5 @@ script(type="text/template", id="tpl-testimony-preview")
 script(type="text/template", id="tpl-testimony-slider")
   .avatar
   .centered
-    blockquote " {{testimony.getContent()}} "
+    blockquote " {{testimony.getContent(mobile)}} "
     span {{testimony.get('name')}} - {{testimony.get('location')}}
