@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "nodemon": "nodemon server.js"
+    "nodemon": "nodemon server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -50,7 +52,8 @@
     "quill-delta-to-html": "^0.5.1",
     "serve-static": "^1.12.1",
     "simplemde": "^1.11.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -64,5 +67,6 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "webpack": "^2.3.3"
-  }
+  },
+  "snyk": true
 }
